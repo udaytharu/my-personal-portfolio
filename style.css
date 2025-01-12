@@ -1,7 +1,3 @@
-/* Improved CSS Code */
-
-/* Global Styles */
-/* import google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 * {
@@ -16,7 +12,7 @@
 body {
   width: 100%;
   height: auto;
-  background-color: black;
+  background: black;
   overflow-x: hidden;
 }
 
@@ -156,9 +152,9 @@ section .main-container {
 }
 
 .main-container .image {
-  width: 300px;
-  height: 70vh;
-  border-radius: 100%;
+  width: 50vh;
+  height: 50vh;
+  border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 0 50px #b74b4b;
 }
@@ -708,4 +704,14 @@ footer, .text span a:hover{
       color: #b74b4b;
     }
   }
-  
+
+  @media (max-width: 768px) {
+    .contact .text {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    .contact .button {
+        width: 100%; /* Full width button on smaller screens */
+        margin: 20px 0; /* Add margin for spacing */
+    }
+  }

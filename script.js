@@ -33,5 +33,13 @@ function deleteText() {
     }
 }
 
+function hamburg() {
+    document.getElementById('dropdownMenu').classList.toggle('show');
+}
+
+function cancel() {
+    document.getElementById('dropdownMenu').classList.remove('show');
+}
+
 // Start the typing effect
 type();
