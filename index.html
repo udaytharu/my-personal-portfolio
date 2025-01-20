@@ -1,214 +1,316 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style-updated.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <title>My Portfolio</title>
-</head>
-<body>
-    <!-- Navigation Menu -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <span>Uday</span>
-            </div>
-            <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="#home">Home</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="#about">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="#skills">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="#services">Services</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="#contact">Contact</a></div>
-            </div>
-            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-            <div class="dropdown" id="dropdownMenu">
-                <div class="links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#services">Services</a>
-                    <a href="#contact">Contact</a>
-                    <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <section id="home">
-        <div class="main-container">
-            <div class="image">
-                <img src="main.gif" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="700" alt="Main Image" srcset="">
-            </div>
-            <div class="content">
-                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="900">
-                    Hey I'm
-                    <span>Uday</span></h1>
-                <h3 class="typing-text">I'm a <span></span></h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dignissimos commodi amet sint at esse vitae nihil ratione incidunt reprehenderit tempora ex fugit molestiae accusantium ullam natus corporis perspiciatis distinctio repellendus, voluptatibus, hic, atque impedit. Veniam soluta ad beatae. Asperiores eaque corporis distinctio beatae voluptates.</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/uday-tharu-25b9042ba/" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/udaytharu" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://x.com/UdayTharu813" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://www.instagram.com/udaytharu6/" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/uday.tharu.73" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"><i class="fa-brands fa-facebook"></i></a>
-                </div>
-                <div class="btn" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1800">
-                    <button>Hire me</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section Start -->
-    <section class="about" id="about">
-        <div class="content">
-            <div class="title" data-aos="fade-up" data-aos-duration="1500"><span>About Me</span></div>
-            <div class="about-details">
-                <div class="left" class="image" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">
-                    <img src="pro.gif" alt="Profile Image" srcset="">
-                </div>
-                <div class="right">
-                    <div class="topic" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="200">Designing is My Passion</div>
-                    <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reprehenderit omnis qui quasi. Animi, fugiat delectus eligendi vel est similique perspiciatis voluptatibus at cupiditate accusamus tenetur facilis sapiente aperiam explicabo aut tempora? Exercitationem in repellat, ullam, placeat ducimus aperiam sequi possimus omnis labore impedit fuga.</p>
-                    <div class="button" data-aos="zoom-in-right" data-aos-duration="1500" data-aos-delay="400">
-                        <button>Download CV</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- My Skill Section Start -->
-    <section class="skills" id="skills">
-        <div class="content">
-            <div class="title" data-aos="fade-up" data-aos-duration="1200"><span>My Skills</span></div>
-            <div class="skill-details">
-                <div class="text">
-                    <div class="topic" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">Skills Reflects Our Knowledge</div>
-                    <p data-aos="fade-right" data-aos-duration="1500" data-aos-delay="400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ea sunt rerum tempore iusto quos ullam at quod dignissimos quae! Dolor aperiam fugit hic doloribus error numquam suscipit, porro, unde, labore consectetur asperiores magni officiis!</p>
-                    <div class="experience" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600">
-                        <div class="num">10</div>
-                        <div class="exp">
-                            Years Of<br>Experience
-                        </div>
-                    </div>
-                </div>
-                <div class="boxes">
-                    <div class="box">
-                        <div class="topic" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="150">HTML</div>
-                        <div class="per" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">90%</div>
-                    </div>
-                    <div class="box">
-                        <div class="topic"data-aos="fade-left" data-aos-duration="1200" data-aos-delay="150">CSS</div>
-                        <div class="per" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">80%</div>
-                    </div>
-                    <div class="box">
-                        <div class="topic"data-aos="fade-right" data-aos-duration="1200" data-aos-delay="450">JavaScript</div>
-                        <div class="per" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">70%</div>
-                    </div>
-                    <div class="box">
-                        <div class="topic"data-aos="fade-left" data-aos-duration="1200" data-aos-delay="450">PHP</div>
-                        <div class="per" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600">60%</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- My Services Section Start -->
-    <section class="services" id="services">
-        <div class="content">
-            <div class="title" data-aos="fade-up" data-aos-duration="1200"><span>My Services</span></div>
-            <div class="boxes">
-                <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-                    <div class="icon">
-                        <i class="fas fa-desktop"></i>
-                   </div>
-       <div class="topic">Web Development</div>
-                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.</p>
-                    </div>
-                    <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
-                        <div class="icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <div class="topic">Graphic Design</div>
-                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.</p>
-                        </div>
-
-                        <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
-                            <div class="icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="topic">Digital Marketing</div>
-                            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.</p>
-                            </div>
-
-                            <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
-                                <div class="icon">
-                                    <i class="fab fa-android"></i>
-                                </div>
-                                <div class="topic">Icon Design</div>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.</p>
-                                </div>
-
-                                <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
-                                    <div class="icon">
-                                        <i class="fas fa-camera-retro"></i>
-                                    </div>
-                                    <div class="topic">Photography</div>
-                                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.</p>
-                                    </div>
-
-                                    <div class="box" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200">
-                                        <div class="icon">
-                                            <i class="fas fa-tablet-alt"></i>
-                                        </div>
-                                        <div class="topic">App Development</div>
-                                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.</p>
-                                        </div>
-            </div>
-        </div>
-    </section>
-
-          <!-- Contact Me -->
-<section class="contact" id="contact">
-    <div class="content">
-        <div class="title" data-aos="fade-up" data-aos-duration="1500">
-            <span>Contact Me</span>
-        </div>
-        <div class="text">
-            <div class="topic" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">Have Any Project?</div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam aspernatur eaque, modi vero voluptatum soluta temporibus facere laborum doloribus cumque.</p>
-            <div class="button" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="400">
-                <button id="chatButton" aria-label="Open Contact Form">Let's Chat</button>
-            </div>
-        </div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <title>
+   My Portfolio
+  </title>
+ </head>
+ <body class="bg-gray-100 text-gray-900">
+  <!-- Navigation Menu -->
+  <nav class="bg-white shadow-md">
+   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold" id="logo">
+     Uday
     </div>
-</section>
-     <!-- Footer Section -->
-      <footer>
-        <div class="text">
-            <span>Created By
-                <a href="#">uday-studio</a> &#169; 2024 All Rights Reserved 
-            </span>
+    <div class="hidden md:flex space-x-6">
+     <a class="hover:text-blue-500" href="#home">
+      Home
+     </a>
+     <a class="hover:text-blue-500" href="#about">
+      About
+     </a>
+     <a class="hover:text-blue-500" href="#skills">
+      Skills
+     </a>
+     <a class="hover:text-blue-500" href="#projects">
+      Projects
+     </a>
+     <a class="hover:text-blue-500" href="#contact">
+      Contact
+     </a>
+    </div>
+    <div class="md:hidden">
+     <i class="fa-solid fa-bars text-2xl" onclick="hamburg()">
+     </i>
+    </div>
+   </div>
+   <div class="md:hidden hidden" id="dropdownMenu">
+    <div class="flex flex-col space-y-4 p-4">
+     <a class="hover:text-blue-500" href="#home">
+      Home
+     </a>
+     <a class="hover:text-blue-500" href="#about">
+      About
+     </a>
+     <a class="hover:text-blue-500" href="#skills">
+      Skills
+     </a>
+     <a class="hover:text-blue-500" href="#projects">
+      Projects
+     </a>
+     <a class="hover:text-blue-500" href="#contact">
+      Contact
+     </a>
+     <i class="fa-solid fa-xmark text-2xl self-end" onclick="cancel()">
+     </i>
+    </div>
+   </div>
+  </nav>
+  <!-- Home Section -->
+  <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center" id="home">
+   <div class="md:w-1/2">
+    <img alt="Main Image showing a professional person" class="rounded-lg shadow-lg " height="400" src="main.png" width="400"/>
+   </div>
+   <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
+    <h1 class="text-4xl font-bold">
+     Hey I'm
+     <span class="text-blue-500">
+      Uday
+     </span>
+    </h1>
+    <div class="container mx-auto p-4">
+        <h3 class="text-2xl mt-4">
+            I'm a
+            <span class="text-blue-500 typing" id="typing-text"></span>
+        </h3>
+    </div>
+    <p class="mt-4">
+     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dignissimos commodi amet sint at esse vitae nihil ratione incidunt reprehenderit tempora ex fugit molestiae accusantium ullam natus corporis perspiciatis distinctio repellendus, voluptatibus, hic, atque impedit. Veniam soluta ad beatae. Asperiores eaque corporis distinctio beatae voluptates.
+    </p>
+    <div class="flex space-x-4 mt-4">
+     <a class="text-blue-500 hover:text-blue-700" href="https://www.linkedin.com/in/uday-tharu-25b9042ba/" target="_blank">
+      <i class="fa-brands fa-linkedin">
+      </i>
+     </a>
+     <a class="text-gray-800 hover:text-gray-900" href="https://github.com/udaytharu" target="_blank">
+      <i class="fa-brands fa-github">
+      </i>
+     </a>
+     <a class="text-blue-500 hover:text-blue-700" href="https://x.com/UdayTharu813" target="_blank">
+      <i class="fa-brands fa-x-twitter">
+      </i>
+     </a>
+     <a class="text-pink-500 hover:text-pink-700" href="https://www.instagram.com/udaytharu6/" target="_blank">
+      <i class="fa-brands fa-instagram">
+      </i>
+     </a>
+     <a class="text-blue-700 hover:text-blue-900" href="https://www.facebook.com/uday.tharu.73" target="_blank">
+      <i class="fa-brands fa-facebook">
+      </i>
+     </a>
+    </div>
+    <button class="mt-8 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+     Hire me
+    </button>
+   </div>
+  </section>
+  <!-- About Section -->
+  <section class="bg-white py-16" id="about">
+   <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center">
+     About Me
+    </h2>
+    <div class="flex flex-col md:flex-row mt-8">
+     <div class="md:w-1/2">
+      <img alt="Profile Image of Uday" class="rounded-lg shadow-lg" height="500" src="pro.png" width="500"/>
+     </div>
+     <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
+      <h3 class="text-2xl font-bold">
+       Designing is My Passion
+      </h3>
+      <p class="mt-4">
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reprehenderit omnis qui quasi. Animi, fugiat delectus eligendi vel est similique perspiciatis voluptatibus at cupiditate accusamus tenetur facilis sapiente aperiam explicabo aut tempora? Exercitationem in repellat, ullam, placeat ducimus aperiam sequi possimus omnis labore impedit fuga.
+      </p>
+      <button class="mt-8 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+       Download CV
+      </button>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Skills Section -->
+  <section class="py-16" id="skills">
+   <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center">
+     My Skills
+    </h2>
+    <div class="flex flex-col md:flex-row mt-8">
+     <div class="md:w-1/2">
+      <h3 class="text-2xl font-bold">
+       Skills Reflects Our Knowledge
+      </h3>
+      <p class="mt-4">
+       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ea sunt rerum tempore iusto quos ullam at quod dignissimos quae! Dolor aperiam fugit hic doloribus error numquam suscipit, porro, unde, labore consectetur asperiores magni officiis!
+      </p>
+      <div class="flex items-center mt-8">
+       <div class="text-4xl font-bold">
+        10
+       </div>
+       <div class="ml-4">
+        <div class="text-xl font-semibold">
+         Years Of
         </div>
-      </footer>
-
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      <script>
-        AOS.init({offset:0});
-        
-        function hamburg() {
-            document.getElementById('dropdownMenu').classList.toggle('show');
-        }
-
-        function cancel() {
-            document.getElementById('dropdownMenu').classList.remove('show');
-        }
-      </script>
-      <script src="script.js"></script>
-      <script src="contact.js"></script>
-</body>
+        <div class="text-xl font-semibold">
+         Experience
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
+      <div class="grid grid-cols-2 gap-4">
+       <div class="bg-white p-4 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold">
+         HTML
+        </h4>
+        <div class="text-blue-500 text-2xl font-bold">
+         90%
+        </div>
+       </div>
+       <div class="bg-white p-4 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold">
+         CSS
+        </h4>
+        <div class="text-blue-500 text-2xl font-bold">
+         80%
+        </div>
+       </div>
+       <div class="bg-white p-4 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold">
+         JavaScript
+        </h4>
+        <div class="text-blue-500 text-2xl font-bold">
+         70%
+        </div>
+       </div>
+       <div class="bg-white p-4 rounded-lg shadow-lg">
+        <h4 class="text-xl font-bold">
+         PHP
+        </h4>
+        <div class="text-blue-500 text-2xl font-bold">
+         60%
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Projects Section -->
+  <section class="py-16" id="projects">
+   <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center">
+     My Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+     <div class="bg-white p-6 rounded-lg shadow-lg">
+      <img alt="Project 1 screenshot showing a responsive web design" class="rounded-lg mb-4" height="400" src="https://storage.googleapis.com/a1aa/image/wkQR3eNY1i3MASq4UKdiSuU08fFGqbLTe7egY4LyHmckAGcQB.jpg" width="600"/>
+      <h3 class="text-xl font-bold mb-4">
+       Project 1
+      </h3>
+      <p>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.
+      </p>
+     </div>
+     <div class="bg-white p-6 rounded-lg shadow-lg">
+      <img alt="Project 2 screenshot showing an e-commerce website" class="rounded-lg mb-4" height="400" src="https://storage.googleapis.com/a1aa/image/aQBoDiBQuhICMhil8DliEsDuKzcNBxbea6uaV1qKIwXEwgDKA.jpg" width="600"/>
+      <h3 class="text-xl font-bold mb-4">
+       Project 2
+      </h3>
+      <p>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.
+      </p>
+     </div>
+     <div class="bg-white p-6 rounded-lg shadow-lg">
+      <img alt="Project 3 screenshot showing a mobile app interface" class="rounded-lg mb-4" height="400" src="https://storage.googleapis.com/a1aa/image/fYystDhe0Fh1NEaU7RaU5tfr6hijxWV5ExytZ6Aqtm9MADOoA.jpg" width="600"/>
+      <h3 class="text-xl font-bold mb-4">
+       Project 3
+      </h3>
+      <p>
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Contact Section -->
+    <section class="bg-white py-12" id="contact"
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Get in Touch
+                </h2>
+                <p class="mt-4 text-lg leading-6 text-gray-500">
+                    We'd love to hear from you! Whether you have a question about features, pricing, or anything else, our team is ready to answer all your questions.
+                </p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex flex-col space-y-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt text-gray-500 text-2xl"></i>
+                        <div class="ml-4 text-lg text-gray-700">
+                            +1 (555) 123-4567
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-gray-500 text-2xl"></i>
+                        <div class="ml-4 text-lg text-gray-700">
+                            contact@example.com
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-gray-500 text-2xl"></i>
+                        <div class="ml-4 text-lg text-gray-700">
+                            1234 Example St, City, Country
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Your Name">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <div class="mt-1">
+                                <input type="email" name="email" id="email" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="you@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <div class="mt-1">
+                                <textarea id="message" name="message" rows="4" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Your message"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-4">
+   <div class="container mx-auto px-4 text-center">
+    <span>
+     Created By
+     <a class="text-blue-500 hover:text-blue-700" href="#">
+      uday-studio
+     </a>
+     © 2024 All Rights Reserved
+    </span>
+   </div>
+  </footer>
+  <script src="script.js"></script>
+ </body>
 </html>

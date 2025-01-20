@@ -1,21 +1,21 @@
 #logo:hover{
-  cursor: pointer;
-  color: rgb(55, 117, 251);
+    cursor: pointer;
+    color: rgb(55, 117, 251);
 
 }
 #menu{
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 #dropdownMenu{
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .typing::after {
-  content: '|';
-  animation: blink 0.7s infinite;
+    content: '|';
+    animation: blink 0.7s infinite;
 }
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
