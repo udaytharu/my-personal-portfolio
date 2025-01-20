@@ -1,7 +1,7 @@
 const phrases = ["Web Developer", "Software Developer", "Web Designer", "Content Creator", "Script Writer"];
 let currentPhraseIndex = 0;
 let currentCharIndex = 0;
-const typingText = document.querySelector('.typing-text span');
+const typingText = document.getElementById('typing-text');
 const typingSpeed = 100; // Typing speed in milliseconds
 const deletingSpeed = 50; // Deleting speed in milliseconds
 const pauseBeforeDeleting = 2000; // Pause before deleting in milliseconds
@@ -33,13 +33,12 @@ function deleteText() {
     }
 }
 
+type();
+
 function hamburg() {
-    document.getElementById('dropdownMenu').classList.toggle('show');
+    document.getElementById('dropdownMenu').classList.toggle('hidden');
 }
 
 function cancel() {
-    document.getElementById('dropdownMenu').classList.remove('show');
+    document.getElementById('dropdownMenu').classList.add('hidden');
 }
-
-// Start the typing effect
-type();
