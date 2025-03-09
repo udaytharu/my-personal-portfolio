@@ -1,21 +1,222 @@
-#logo:hover{
+/* Enhanced Base styles */
+#logo {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#logo:hover {
     cursor: pointer;
     color: rgb(55, 117, 251);
-
-}
-#menu{
-    font-size: 1.5rem;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(55, 117, 251, 0.7);
 }
 
-#dropdownMenu{
+/* Mobile menu styles with slide-in effect */
+#menuButton {
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#menuButton:hover {
+    opacity: 0.8;
+    transform: rotate(90deg);
+}
+
+#dropdownMenu {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform-origin: top;
+}
+
+#dropdownMenu:not(.hidden) {
+    animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+    0% { transform: scaleY(0); opacity: 0; }
+    100% { transform: scaleY(1); opacity: 1; }
+}
+
+/* Enhanced Typing animation with glow */
+.typing {
+    position: relative;
+    display: inline-block;
 }
 
 .typing::after {
     content: '|';
     animation: blink 0.7s infinite;
+    color: rgb(55, 117, 251);
+    margin-left: 2px;
 }
+
+.typing {
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px rgba(55, 117, 251, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(55, 117, 251, 0.8), 0 0 30px rgba(55, 117, 251, 0.4); }
+}
+
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive images with hover effect */
+img {
+    max-width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Button effects */
+button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+button:hover::after {
+    width: 200%;
+    height: 200%;
+}
+
+button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(55, 117, 251, 0.4);
+}
+
+/* Social media icons with bounce effect */
+.fa-brands {
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.fa-brands:hover {
+    transform: scale(1.3) translateY(-5px);
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1.3) translateY(0); }
+    50% { transform: scale(1.3) translateY(-10px); }
+}
+
+/* Project card hover effects */
+.shadow-lg {
+    transition: all 0.3s ease;
+}
+
+.shadow-lg:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Section entrance animation */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+section:nth-child(1) { animation-delay: 0.1s; }
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.3s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skill percentage animation */
+.skill-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, rgba(55, 117, 251, 0.1), rgba(55, 117, 251, 0.3));
+    animation: fillWidth 2s ease forwards;
+}
+
+@keyframes fillWidth {
+    to {
+        width: 100%;
+    }
+}
+
+/* Go to Top button styles */
+.go-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    padding: 10px 15px;
+    background-color: rgb(55, 117, 251);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.go-to-top:hover {
+    transform: scale(1.1);
+    background-color: rgb(45, 97, 231);
+    box-shadow: 0 6px 15px rgba(45, 97, 231, 0.4);
+}
+
+@media (min-width: 768px) {
+    .go-to-top {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    .go-to-top {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 1rem;
+    }
 }
