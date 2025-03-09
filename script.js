@@ -1,6 +1,6 @@
 // Typing animation configuration
 const config = {
-    phrases: ["Web Developer", "Software Developer", "Web Designer", "Content Creator", "Script Writer"],
+    phrases: ["Web Developer", "Frontend Developer", "Web Designer", "Graphic Designer", "Script Writer", ],
     typingSpeed: 100,
     deletingSpeed: 50,
     pauseBeforeDeleting: 2000,
@@ -97,8 +97,8 @@ function downloadCV() {
 let isFormSubmitting = false;
 
 function handleContactForm(event) {
-    event.preventDefault(); // Prevent default form submission
-    if (isFormSubmitting) return; // Prevent multiple submissions
+    event.preventDefault();
+    if (isFormSubmitting) return;
 
     isFormSubmitting = true;
     console.log('Form submitted');
@@ -120,13 +120,63 @@ function handleContactForm(event) {
         console.log('SUCCESS!', response.status, response.text);
         alert('We will reply soon!');
         form.reset();
+
+        // Add confetti animation
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 3000);
+        }
     }, (error) => {
         console.log('FAILED...', error);
         alert('Error sending message. Please try again later.');
     })
     .finally(() => {
-        isFormSubmitting = false; // Reset flag after completion
+        isFormSubmitting = false;
     });
+}
+
+function createParticles(count) {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles';
+    document.getElementById('home').appendChild(particlesContainer);
+
+    for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        const x = Math.random() * 100;
+        const delay = Math.random() * 15;
+        particle.style.left = `${x}vw`;
+        particle.style.animationDelay = `${delay}s`;
+        particlesContainer.appendChild(particle);
+    }
+}
+
+function createBackgroundShapes(count) {
+    const shapesContainer = document.querySelector('.background-shapes');
+    const shapes = ['circle', 'triangle'];
+
+    for (let i = 0; i < count; i++) {
+        const shape = document.createElement('div');
+        const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
+        shape.className = `shape ${shapeType}`;
+        
+        const startX = Math.random() * 100;
+        const startY = Math.random() * 100;
+        shape.style.left = `${startX}vw`;
+        shape.style.top = `${startY}vh`;
+        
+        const delay = Math.random() * 10;
+        const duration = 15 + Math.random() * 10;
+        shape.style.animationDelay = `${delay}s`;
+        shape.style.animationDuration = `${duration}s`;
+        
+        shapesContainer.appendChild(shape);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -134,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const contactForm = document.querySelector('#contact-form');
         if (contactForm) {
             contactForm.addEventListener('submit', handleContactForm);
-            window.contactFormInitialized = true; // Prevent re-initialization
+            window.contactFormInitialized = true;
         }
 
         try {
@@ -146,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const mobileMenu = new MobileMenu();
 
-        // Go to Top button functionality
         const goToTopButtons = document.querySelectorAll('.go-to-top');
         goToTopButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -154,7 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Show/hide button based on scroll position
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
             goToTopButtons.forEach(button => {
@@ -165,5 +213,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        createParticles(50);
+
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.querySelector('.skill-spotlight')?.style.setProperty('--x', `${x}px`);
+                card.querySelector('.skill-spotlight')?.style.setProperty('--y', `${y}px`);
+            });
+        });
+
+        createBackgroundShapes(20); // Create 20 floating shapes
     }
 });

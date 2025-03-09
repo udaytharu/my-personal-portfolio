@@ -4,10 +4,9 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Uday Tharu's Portfolio - Web Developer and Designer"/>
-    <meta name="keywords" content="web developer, software developer, web designer, portfolio"/>
+    <meta name="keywords" content="web developer, frontend developer, web designer, portfolio"/>
     <script src="https://cdn.tailwindcss.com" defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css">
     <!-- Include EmailJS library -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
@@ -15,9 +14,13 @@
             emailjs.init('xwC3cQRh_vNAZ1jVu'); // Replace with your EmailJS User ID
         })();
     </script>
+    <link rel="stylesheet" href="style.css"/>
     <title>My Portfolio</title>
 </head>
 <body class="bg-gray-100 text-gray-900">
+    <!-- Background Animation Container -->
+    <div class="background-shapes"></div>
+
     <!-- Navigation Menu -->
     <nav class="bg-white shadow-md">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -52,7 +55,7 @@
     </nav>
 
     <!-- Home Section -->
-    <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center" id="home">
+    <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center relative" id="home">
         <div class="md:w-1/2">
             <img alt="Main Image showing a professional person" class="rounded-lg shadow-lg w-full max-w-md mx-auto" src="main.png" loading="lazy"/>
         </div>
@@ -66,7 +69,7 @@
                 </h3>
             </div>
             <p class="mt-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dignissimos commodi amet sint at esse vitae nihil ratione incidunt reprehenderit tempora ex fugit molestiae accusantium ullam natus corporis perspiciatis distinctio repellendus, voluptatibus, hic, atque impedit. Veniam soluta ad beatae. Asperiores eaque corporis distinctio beatae voluptates.
+                I’m a passionate web developer with a strong focus on creating visually appealing and highly functional websites. With years of experience in frontend development and design, I specialize in crafting responsive, user-friendly interfaces that deliver seamless experiences across devices. My goal is to bring your ideas to life through clean code, modern design, and innovative solutions.
             </p>
             <div class="flex space-x-4 mt-4">
                 <a class="text-blue-500 hover:text-blue-700" href="https://www.linkedin.com/in/uday-tharu-25b9042ba/" target="_blank">
@@ -103,7 +106,7 @@
                 <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
                     <h3 class="text-2xl font-bold">Designing is My Passion</h3>
                     <p class="mt-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reprehenderit omnis qui quasi. Animi, fugiat delectus eligendi vel est similique perspiciatis voluptatibus at cupiditate accusamus tenetur facilis sapiente aperiam explicabo aut tempora? Exercitationem in repellat, ullam, placeat ducimus aperiam sequi possimus omnis labore impedit fuga.
+                        I’ve always been fascinated by the intersection of design and technology, which led me to pursue a career in web development. Over the years, I’ve honed my skills in creating intuitive and aesthetically pleasing digital experiences. I thrive on solving complex problems, whether it’s optimizing a website for performance or designing a layout that captivates users. Let’s build something amazing together!
                     </p>
                     <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300" onclick="downloadCV()">
                         Download CV
@@ -122,10 +125,10 @@
                 <div class="md:w-1/2">
                     <h3 class="text-2xl font-bold">Skills Reflect Our Knowledge</h3>
                     <p class="mt-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ea sunt rerum tempore iusto quos ullam at quod dignissimos quae! Dolor aperiam fugit hic doloribus error numquam suscipit, porro, unde, labore consectetur asperiores magni officiis!
+                        My expertise spans a variety of technologies, allowing me to build dynamic and responsive websites tailored to clients’ needs. I’m proficient in both frontend and backend development, with a keen eye for design and usability. From crafting pixel-perfect layouts to writing efficient code, I ensure every project reflects my dedication to quality and innovation.
                     </p>
                     <div class="flex items-center mt-8">
-                        <div class="text-4xl font-bold">10</div>
+                        <div class="text-4xl font-bold">2</div>
                         <div class="ml-4">
                             <div class="text-xl font-semibold">Years Of</div>
                             <div class="text-xl font-semibold">Experience</div>
@@ -135,18 +138,22 @@
                 <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-white p-4 rounded-lg shadow-lg skill-card">
+                            <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">HTML</h4>
                             <div class="text-blue-500 text-2xl font-bold">90%</div>
                         </div>
                         <div class="bg-white p-4 rounded-lg shadow-lg skill-card">
+                            <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">CSS</h4>
                             <div class="text-blue-500 text-2xl font-bold">80%</div>
                         </div>
                         <div class="bg-white p-4 rounded-lg shadow-lg skill-card">
+                            <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">JavaScript</h4>
                             <div class="text-blue-500 text-2xl font-bold">70%</div>
                         </div>
                         <div class="bg-white p-4 rounded-lg shadow-lg skill-card">
+                            <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">PHP</h4>
                             <div class="text-blue-500 text-2xl font-bold">60%</div>
                         </div>
@@ -157,62 +164,118 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="py-16" id="projects">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img alt="Project 1 screenshot showing a responsive web design" class="rounded-lg mb-4" height="400" src="https://storage.googleapis.com/a1aa/image/wkQR3eNY1i3MASq4UKdiSuU08fFGqbLTe7egY4LyHmckAGcQB.jpg" width="600"/>
-                    <h3 class="text-xl font-bold mb-4">Project 1</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img alt="Project 2 screenshot showing an e-commerce website" class="rounded-lg mb-4" height="400" src="https://storage.googleapis.com/a1aa/image/aQBoDiBQuhICMhil8DliEsDuKzcNBxbea6uaV1qKIwXEwgDKA.jpg" width="600"/>
-                    <h3 class="text-xl font-bold mb-4">Project 2</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.
-                    </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <img alt="Project 3 screenshot showing a mobile app interface" class="rounded-lg mb-4" height="400" src="https://storage.googleapis.com/a1aa/image/fYystDhe0Fh1NEaU7RaU5tfr6hijxWV5ExytZ6Aqtm9MADOoA.jpg" width="600"/>
-                    <h3 class="text-xl font-bold mb-4">Project 3</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis, autem reiciendis debitis tenetur ipsam et explicabo praesentium dignissimos sunt delectus dolorem illo animi labore aspernatur accusamus veritatis eum eaque perferendis nisi assumenda facilis ad.
-                    </p>
+<!-- Projects Section -->
+<section class="py-16 bg-white" id="projects">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Project 1 -->
+            <div class="project-card" style="--delay: 0.2s;">
+                <div class="project-inner">
+                    <div class="project-front">
+                        <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/wkQR3eNY1i3MASq4UKdiSuU08fFGqbLTe7egY4LyHmckAGcQB.jpg');"></div> <!-- Project 1  image here-->
+                        <h3 class="text-xl font-bold text-gray-900 mt-4">Local Business Website</h3><!-- Project 1 heading name here-->
+                        <div class="flex space-x-2 mt-2">
+                            <span class="tech-badge bg-blue-100 text-blue-800">HTML</span><!-- Project 1 code name here-->
+                            <span class="tech-badge bg-blue-100 text-blue-800">CSS</span><!-- Project 1 code name here-->
+                            <span class="tech-badge bg-blue-100 text-blue-800">JavaScript</span><!-- Project 1 code name here-->
+                        </div>
+                    </div>
+                    <div class="project-back">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Local Business Website</h3><!-- Project 1 heading name here-->
+                        <p class="text-gray-700 mb-4">
+                            A fully responsive website designed for a local business, featuring a clean and modern layout. I focused on optimizing the site for speed and accessibility, ensuring it performs well on all devices.
+                        </p><!-- Project 1 discription here-->
+                        <div class="flex space-x-4">
+                            <a href="https://example.com/project1" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
+                            <a href="https://github.com/udaytharu/project1" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button class="go-to-top">↑</button>
+            <!-- Project 2 -->
+            <div class="project-card" style="--delay: 0.4s;">
+                <div class="project-inner">
+                    <div class="project-front">
+                        <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/aQBoDiBQuhICMhil8DliEsDuKzcNBxbea6uaV1qKIwXEwgDKA.jpg');"></div>
+                        <h3 class="text-xl font-bold text-gray-900 mt-4">E-Commerce Platform</h3>
+                        <div class="flex space-x-2 mt-2">
+                            <span class="tech-badge bg-blue-100 text-blue-800">React</span>
+                            <span class="tech-badge bg-blue-100 text-blue-800">Node.js</span>
+                            <span class="tech-badge bg-blue-100 text-blue-800">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="project-back">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-700 mb-4">
+                            An e-commerce platform focused on user engagement and seamless transactions, with features like product filtering and a secure checkout system.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://example.com/project2" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
+                            <a href="https://github.com/udaytharu/project2" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card" style="--delay: 0.6s;">
+                <div class="project-inner">
+                    <div class="project-front">
+                        <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/fYystDhe0Fh1NEaU7RaU5tfr6hijxWV5ExytZ6Aqtm9MADOoA.jpg');"></div>
+                        <h3 class="text-xl font-bold text-gray-900 mt-4">Mobile App Interface</h3>
+                        <div class="flex space-x-2 mt-2">
+                            <span class="tech-badge bg-blue-100 text-blue-800">Figma</span>
+                            <span class="tech-badge bg-blue-100 text-blue-800">Flutter</span>
+                        </div>
+                    </div>
+                    <div class="project-back">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile App Interface</h3>
+                        <p class="text-gray-700 mb-4">
+                            A mobile app interface designed with user-centered principles, featuring a sleek and minimalistic design with easy navigation.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://example.com/project3" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
+                            <a href="https://github.com/udaytharu/project3" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
-
+        <button class="go-to-top">↑</button>
+    </div>
+</section>
     <!-- Contact Section -->
     <section class="bg-white py-12" id="contact">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Get in Touch</h2>
                 <p class="mt-4 text-lg leading-6 text-gray-500">
-                    We'd love to hear from you! Whether you have a question about features, pricing, or anything else, our team is ready to answer all your questions.
+                    I’m excited to collaborate on your next project! Whether you need a stunning website, a custom web application, or design consultation, feel free to reach out. Let’s discuss your ideas and turn them into reality.
                 </p>
             </div>
             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="flex flex-col space-y-4">
-                    <div class="flex items-center">
-                        <i class="fas fa-phone-alt text-gray-500 text-2xl"></i>
-                        <div class="ml-4 text-lg text-gray-700">
-                            <a href="tel:+977-9868595005">9868595005</a>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-envelope text-gray-500 text-2xl"></i>
-                        <div class="ml-4 text-lg text-gray-700">
-                            <a href="mailto:udaytharu813@gmail.com">udaytharu813@gmail.com</a>
+                <div class="contact-details space-y-6">
+                    <div class="block">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-gray-500 text-2xl"></i>
+                            <div class="ml-4 text-lg text-gray-700">
+                                <a href="tel:+977-9812534304">9812534304</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-map-marker-alt text-gray-500 text-2xl"></i>
-                        <div class="ml-4 text-lg text-gray-700">Rajapur-05, Bardiya, Nepal</div>
+                    <div class="block">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-gray-500 text-2xl"></i>
+                            <div class="ml-4 text-lg text-gray-700">
+                                <a href="mailto:udaytharu813@gmail.com">udaytharu813@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-gray-500 text-2xl"></i>
+                            <div class="ml-4 text-lg text-gray-700">Rajapur-05, Bardiya, Nepal</div>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -251,10 +314,11 @@
     <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto px-4 text-center">
             <span>
-                Created By <a class="text-blue-500 hover:text-blue-700" href="#">uday-studio</a> &copy; 2024 All Rights Reserved
+                Created By <a class="text-blue-500 hover:text-blue-700" href="#">uday-studio</a> © 2024 All Rights Reserved
             </span>
         </div>
     </footer>
-    <script src="script.js" defer></script>
-</body>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91d85db97e707b94',t:'MTc0MTUwMDE3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91d87213da7bb0ca',t:'MTc0MTUwMTAwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
