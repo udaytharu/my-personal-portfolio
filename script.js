@@ -1,6 +1,6 @@
 // Typing animation configuration
 const config = {
-    phrases: ["Web Developer", "Frontend Developer", "Web Designer", "Graphic Designer", "Script Writer", ],
+    phrases: ["Web Developer", "Frontend Developer", "Web Designer", "Graphic Designer", "Script Writer"],
     typingSpeed: 100,
     deletingSpeed: 50,
     pauseBeforeDeleting: 2000,
@@ -64,6 +64,11 @@ class MobileMenu {
         const isExpanded = this.menuButton.getAttribute('aria-expanded') === 'true';
         this.menuButton.setAttribute('aria-expanded', !isExpanded);
         this.dropdownMenu.classList.toggle('hidden');
+
+        // Trigger reflow to ensure animation restarts
+        this.dropdownMenu.style.animation = 'none';
+        this.dropdownMenu.offsetHeight; // Trigger reflow
+        this.dropdownMenu.style.animation = isExpanded ? 'none' : 'slideDown 0.3s ease forwards';
     }
 
     handleClickOutside(event) {
@@ -81,6 +86,7 @@ class MobileMenu {
     closeMenu() {
         this.menuButton.setAttribute('aria-expanded', 'false');
         this.dropdownMenu.classList.add('hidden');
+        this.dropdownMenu.style.animation = 'none'; // Reset animation
     }
 }
 

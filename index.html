@@ -21,38 +21,38 @@
     <!-- Background Animation Container -->
     <div class="background-shapes"></div>
 
-    <!-- Navigation Menu -->
-    <nav class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold" id="logo" role="banner">
-                Uday Tharu
-            </div>
-            <div class="hidden md:flex space-x-6">
-                <a class="hover:text-blue-500" href="#home">Home</a>
-                <a class="hover:text-blue-500" href="#about">About</a>
-                <a class="hover:text-blue-500" href="#skills">Skills</a>
-                <a class="hover:text-blue-500" href="#projects">Projects</a>
-                <a class="hover:text-blue-500" href="#contact">Contact</a>
-            </div>
-            <div class="md:hidden">
-                <button class="md:hidden" aria-label="Toggle menu" aria-expanded="false" id="menuButton">
-                    <i class="fa-solid fa-bars text-2xl" aria-hidden="true"></i>
-                </button>
-            </div>
+   <!-- Navigation Menu -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold" id="logo" role="banner">
+            Uday Tharu
         </div>
-        <div class="md:hidden hidden" id="dropdownMenu" role="menu" aria-labelledby="menuButton">
-            <div class="flex flex-col space-y-4 p-4">
-                <a class="hover:text-blue-500" href="#home">Home</a>
-                <a class="hover:text-blue-500" href="#about">About</a>
-                <a class="hover:text-blue-500" href="#skills">Skills</a>
-                <a class="hover:text-blue-500" href="#projects">Projects</a>
-                <a class="hover:text-blue-500" href="#contact">Contact</a>
-                <button class="self-end" aria-label="Close menu" onclick="mobileMenu.closeMenu()">
+        <div class="hidden md:flex space-x-6">
+            <a class="hover:text-blue-500" href="#home">Home</a>
+            <a class="hover:text-blue-500" href="#about">About</a>
+            <a class="hover:text-blue-500" href="#skills">Skills</a>
+            <a class="hover:text-blue-500" href="#projects">Projects</a>
+            <a class="hover:text-blue-500" href="#contact">Contact</a>
+        </div>
+        <div class="md:hidden">
+            <button class="md:hidden" aria-label="Toggle menu" aria-expanded="false" id="menuButton">
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+    <div class="md:hidden hidden" id="dropdownMenu" role="menu" aria-labelledby="menuButton">
+        <div class="flex flex-col space-y-4 p-4">
+            <a class="hover:text-blue-500" href="#home">Home</a>
+            <a class="hover:text-blue-500" href="#about">About</a>
+            <a class="hover:text-blue-500" href="#skills">Skills</a>
+            <a class="hover:text-blue-500" href="#projects">Projects</a>
+            <a class="hover:text-blue-500" href="#contact">Contact</a>
+            <!-- Removed the cancel button: <button class="self-end" aria-label="Close menu" onclick="mobileMenu.closeMenu()">
                     <i class="fa-solid fa-xmark text-2xl" aria-hidden="true"></i>
-                </button>
-            </div>
+                </button> -->
         </div>
-    </nav>
+    </div>
+</nav>
 
     <!-- Home Section -->
     <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center relative" id="home">
@@ -157,6 +157,11 @@
                             <h4 class="text-xl font-bold">PHP</h4>
                             <div class="text-blue-500 text-2xl font-bold">60%</div>
                         </div>
+                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card">
+                            <div class="skill-spotlight"></div>
+                            <h4 class="text-xl font-bold">Python</h4>
+                            <div class="text-blue-500 text-2xl font-bold">50%</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -164,86 +169,87 @@
         </div>
     </section>
 
-<!-- Projects Section -->
-<section class="py-16 bg-white" id="projects">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            <!-- Project 1 -->
-            <div class="project-card" style="--delay: 0.2s;">
-                <div class="project-inner">
-                    <div class="project-front">
-                        <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/wkQR3eNY1i3MASq4UKdiSuU08fFGqbLTe7egY4LyHmckAGcQB.jpg');"></div> <!-- Project 1  image here-->
-                        <h3 class="text-xl font-bold text-gray-900 mt-4">Local Business Website</h3><!-- Project 1 heading name here-->
-                        <div class="flex space-x-2 mt-2">
-                            <span class="tech-badge bg-blue-100 text-blue-800">HTML</span><!-- Project 1 code name here-->
-                            <span class="tech-badge bg-blue-100 text-blue-800">CSS</span><!-- Project 1 code name here-->
-                            <span class="tech-badge bg-blue-100 text-blue-800">JavaScript</span><!-- Project 1 code name here-->
+    <!-- Projects Section -->
+    <section class="py-16 bg-white" id="projects">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Project 1 -->
+                <div class="project-card" style="--delay: 0.2s;">
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/wkQR3eNY1i3MASq4UKdiSuU08fFGqbLTe7egY4LyHmckAGcQB.jpg');"></div>
+                            <h3 class="text-xl font-bold text-gray-900 mt-4">Local Business Website</h3>
+                            <div class="flex space-x-2 mt-2">
+                                <span class="tech-badge bg-blue-100 text-blue-800">HTML</span>
+                                <span class="tech-badge bg-blue-100 text-blue-800">CSS</span>
+                                <span class="tech-badge bg-blue-100 text-blue-800">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-back">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Local Business Website</h3>
+                            <p class="text-gray-700 mb-4">
+                                A fully responsive website designed for a local business, featuring a clean and modern layout. I focused on optimizing the site for speed and accessibility, ensuring it performs well on all devices.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="https://example.com/project1" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
+                                <a href="https://github.com/udaytharu/project1" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-back">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Local Business Website</h3><!-- Project 1 heading name here-->
-                        <p class="text-gray-700 mb-4">
-                            A fully responsive website designed for a local business, featuring a clean and modern layout. I focused on optimizing the site for speed and accessibility, ensuring it performs well on all devices.
-                        </p><!-- Project 1 discription here-->
-                        <div class="flex space-x-4">
-                            <a href="https://example.com/project1" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
-                            <a href="https://github.com/udaytharu/project1" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card" style="--delay: 0.4s;">
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/aQBoDiBQuhICMhil8DliEsDuKzcNBxbea6uaV1qKIwXEwgDKA.jpg');"></div>
+                            <h3 class="text-xl font-bold text-gray-900 mt-4">E-Commerce Platform</h3>
+                            <div class="flex space-x-2 mt-2">
+                                <span class="tech-badge bg-blue-100 text-blue-800">React</span>
+                                <span class="tech-badge bg-blue-100 text-blue-800">Node.js</span>
+                                <span class="tech-badge bg-blue-100 text-blue-800">MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="project-back">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">E-Commerce Platform</h3>
+                            <p class="text-gray-700 mb-4">
+                                An e-commerce platform focused on user engagement and seamless transactions, with features like product filtering and a secure checkout system.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="https://example.com/project2" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
+                                <a href="https://github.com/udaytharu/project2" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card" style="--delay: 0.6s;">
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/fYystDhe0Fh1NEaU7RaU5tfr6hijxWV5ExytZ6Aqtm9MADOoA.jpg');"></div>
+                            <h3 class="text-xl font-bold text-gray-900 mt-4">Mobile App Interface</h3>
+                            <div class="flex space-x-2 mt-2">
+                                <span class="tech-badge bg-blue-100 text-blue-800">Figma</span>
+                                <span class="tech-badge bg-blue-100 text-blue-800">Flutter</span>
+                            </div>
+                        </div>
+                        <div class="project-back">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile App Interface</h3>
+                            <p class="text-gray-700 mb-4">
+                                A mobile app interface designed with user-centered principles, featuring a sleek and minimalistic design with easy navigation.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="https://example.com/project3" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
+                                <a href="https://github.com/udaytharu/project3" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Project 2 -->
-            <div class="project-card" style="--delay: 0.4s;">
-                <div class="project-inner">
-                    <div class="project-front">
-                        <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/aQBoDiBQuhICMhil8DliEsDuKzcNBxbea6uaV1qKIwXEwgDKA.jpg');"></div>
-                        <h3 class="text-xl font-bold text-gray-900 mt-4">E-Commerce Platform</h3>
-                        <div class="flex space-x-2 mt-2">
-                            <span class="tech-badge bg-blue-100 text-blue-800">React</span>
-                            <span class="tech-badge bg-blue-100 text-blue-800">Node.js</span>
-                            <span class="tech-badge bg-blue-100 text-blue-800">MongoDB</span>
-                        </div>
-                    </div>
-                    <div class="project-back">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">E-Commerce Platform</h3>
-                        <p class="text-gray-700 mb-4">
-                            An e-commerce platform focused on user engagement and seamless transactions, with features like product filtering and a secure checkout system.
-                        </p>
-                        <div class="flex space-x-4">
-                            <a href="https://example.com/project2" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
-                            <a href="https://github.com/udaytharu/project2" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="project-card" style="--delay: 0.6s;">
-                <div class="project-inner">
-                    <div class="project-front">
-                        <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/fYystDhe0Fh1NEaU7RaU5tfr6hijxWV5ExytZ6Aqtm9MADOoA.jpg');"></div>
-                        <h3 class="text-xl font-bold text-gray-900 mt-4">Mobile App Interface</h3>
-                        <div class="flex space-x-2 mt-2">
-                            <span class="tech-badge bg-blue-100 text-blue-800">Figma</span>
-                            <span class="tech-badge bg-blue-100 text-blue-800">Flutter</span>
-                        </div>
-                    </div>
-                    <div class="project-back">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile App Interface</h3>
-                        <p class="text-gray-700 mb-4">
-                            A mobile app interface designed with user-centered principles, featuring a sleek and minimalistic design with easy navigation.
-                        </p>
-                        <div class="flex space-x-4">
-                            <a href="https://example.com/project3" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
-                            <a href="https://github.com/udaytharu/project3" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <button class="go-to-top">↑</button>
         </div>
-        <button class="go-to-top">↑</button>
-    </div>
-</section>
+    </section>
+
     <!-- Contact Section -->
     <section class="bg-white py-12" id="contact">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -267,7 +273,7 @@
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-gray-500 text-2xl"></i>
                             <div class="ml-4 text-lg text-gray-700">
-                                <a href="mailto:udaytharu813@gmail.com">udaytharu813@gmail.com</a>
+                                <a href="/cdn-cgi/l/email-protection#153667627a776b627174393037551218141c193b161a18"><span class="__cf_email__" data-cfemail="ec9988859d908c85969bc6cfc9ac8b818d8580c28f8381">[email&#160;protected]</span></a>
                             </div>
                         </div>
                     </div>
@@ -318,7 +324,6 @@
             </span>
         </div>
     </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91d85db97e707b94',t:'MTc0MTUwMDE3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91d87213da7bb0ca',t:'MTc0MTUwMTAwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>

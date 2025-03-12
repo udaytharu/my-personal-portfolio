@@ -1,7 +1,9 @@
-/* Enhanced Base styles */
+/* Increase font weight of the logo */
 #logo {
     transition: all 0.3s ease;
     position: relative;
+    font-size: 2.5rem; /* Retained from previous change */
+    font-weight: 700; /* Increased from bold (default 600) to 700 (extra bold) */
 }
 
 #logo:hover {
@@ -11,31 +13,111 @@
     text-shadow: 0 0 10px rgba(55, 117, 251, 0.7);
 }
 
-/* Mobile menu styles with slide-in effect */
+/* Increase font weight of desktop navigation links */
+nav .space-x-6 a {
+    font-size: 1.25rem; /* Retained from previous change */
+    font-weight: 600; /* Increased from default (400) to 600 (semi-bold) */
+    transition: color 0.3s ease;
+}
+
+nav .space-x-6 a:hover {
+    color: rgb(55, 117, 251);
+}
+
+/* Increase font weight of mobile dropdown menu links */
+#dropdownMenu a {
+    font-size: 1.25rem; /* Retained from previous change */
+    font-weight: 600; /* Increased from default (400) to 600 (semi-bold) */
+    transition: color 0.3s ease;
+}
+
+#dropdownMenu a:hover {
+    color: rgb(55, 117, 251);
+}
+
+/* Ensure responsiveness for smaller screens */
+@media (max-width: 767px) {
+    #logo {
+        font-size: 2rem; /* Retained from previous change */
+        font-weight: 700; /* Retained as extra bold */
+    }
+
+    nav .space-x-6 a {
+        font-size: 1rem; /* Retained from previous change */
+        font-weight: 500; /* Slightly reduced to 500 (medium) on mobile for balance */
+    }
+
+    #dropdownMenu a {
+        font-size: 1.1rem; /* Retained from previous change */
+        font-weight: 500; /* Slightly reduced to 500 (medium) on mobile for balance */
+    }
+}
+
+/* Hamburger Menu Button Styles */
 #menuButton {
     cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 20px;
     transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 1001;
 }
 
 #menuButton:hover {
     opacity: 0.8;
-    transform: rotate(90deg);
 }
 
-#dropdownMenu {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    transform-origin: top;
+/* Hamburger Icon (using pseudo-elements for bars) */
+#menuButton::before,
+#menuButton::after,
+#menuButton .bar {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #374151; /* Matches the text color scheme */
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-#dropdownMenu:not(.hidden) {
-    animation: slideDown 0.3s ease forwards;
+#menuButton .bar {
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-@keyframes slideDown {
-    0% { transform: scaleY(0); opacity: 0; }
-    100% { transform: scaleY(1); opacity: 1; }
+#menuButton::before {
+    top: 0;
+    transform: translateY(0);
 }
+
+#menuButton::after {
+    bottom: 0;
+    transform: translateY(0);
+}
+
+/* Morphing Effect when menu is open (aria-expanded="true") */
+#menuButton[aria-expanded="true"]::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#menuButton[aria-expanded="true"]::after {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+#menuButton[aria-expanded="true"] .bar {
+    opacity: 0;
+}
+
+/* Ensure the button is accessible */
+#menuButton:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 
 /* Enhanced Typing animation with glow */
 .typing {
@@ -129,7 +211,7 @@ button:hover {
     50% { transform: scale(1.3) translateY(-10px); }
 }
 
-/* Project card hover effects (Updated below, keeping this for other sections) */
+/* Project card hover effects */
 .shadow-lg {
     transition: all 0.3s ease;
 }
@@ -221,7 +303,7 @@ section:nth-child(5) { animation-delay: 0.5s; }
     }
 }
 
-/* Particle Animation (Existing) */
+/* Particle Animation */
 #home::before {
     content: '';
     position: absolute;
