@@ -15,35 +15,38 @@ class TypingAnimation {
         this.currentPhraseIndex = 0;
         this.currentCharIndex = 0;
         this.config = config;
+        this.isDeleting = false;
+        this.lastPause = Date.now();
     }
 
-    type() {
-        if (this.currentCharIndex < this.phrases[this.currentPhraseIndex].length) {
-            this.element.textContent += this.phrases[this.currentPhraseIndex].charAt(this.currentCharIndex);
-            this.currentCharIndex++;
-            this.timeout = setTimeout(() => this.type(), this.config.typingSpeed);
+    update() {
+        const now = Date.now();
+        if (this.isDeleting) {
+            if (this.currentCharIndex > 0) {
+                this.element.textContent = this.phrases[this.currentPhraseIndex].substring(0, this.currentCharIndex - 1);
+                this.currentCharIndex--;
+            } else {
+                this.isDeleting = false;
+                this.currentPhraseIndex = (this.currentPhraseIndex + 1) % this.phrases.length;
+            }
         } else {
-            this.timeout = setTimeout(() => this.deleteText(), this.config.pauseBeforeDeleting);
+            if (this.currentCharIndex < this.phrases[this.currentPhraseIndex].length) {
+                this.element.textContent += this.phrases[this.currentPhraseIndex].charAt(this.currentCharIndex);
+                this.currentCharIndex++;
+            } else if (now - this.lastPause > this.config.pauseBeforeDeleting) {
+                this.isDeleting = true;
+                this.lastPause = now;
+            }
         }
-    }
-
-    deleteText() {
-        if (this.currentCharIndex > 0) {
-            this.element.textContent = this.phrases[this.currentPhraseIndex].substring(0, this.currentCharIndex - 1);
-            this.currentCharIndex--;
-            this.timeout = setTimeout(() => this.deleteText(), this.config.deletingSpeed);
-        } else {
-            this.currentPhraseIndex = (this.currentPhraseIndex + 1) % this.phrases.length;
-            this.timeout = setTimeout(() => this.type(), this.config.pauseBeforeTypingNextPhrase);
-        }
+        this.animationFrame = requestAnimationFrame(() => this.update());
     }
 
     start() {
-        this.type();
+        this.animationFrame = requestAnimationFrame(() => this.update());
     }
 
     stop() {
-        clearTimeout(this.timeout);
+        cancelAnimationFrame(this.animationFrame);
     }
 }
 
@@ -64,11 +67,6 @@ class MobileMenu {
         const isExpanded = this.menuButton.getAttribute('aria-expanded') === 'true';
         this.menuButton.setAttribute('aria-expanded', !isExpanded);
         this.dropdownMenu.classList.toggle('hidden');
-
-        // Trigger reflow to ensure animation restarts
-        this.dropdownMenu.style.animation = 'none';
-        this.dropdownMenu.offsetHeight; // Trigger reflow
-        this.dropdownMenu.style.animation = isExpanded ? 'none' : 'slideDown 0.3s ease forwards';
     }
 
     handleClickOutside(event) {
@@ -86,7 +84,6 @@ class MobileMenu {
     closeMenu() {
         this.menuButton.setAttribute('aria-expanded', 'false');
         this.dropdownMenu.classList.add('hidden');
-        this.dropdownMenu.style.animation = 'none'; // Reset animation
     }
 }
 
@@ -126,17 +123,6 @@ function handleContactForm(event) {
         console.log('SUCCESS!', response.status, response.text);
         alert('We will reply soon!');
         form.reset();
-
-        // Add confetti animation
-        for (let i = 0; i < 100; i++) {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = `${Math.random() * 100}vw`;
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confetti.style.animationDelay = `${Math.random() * 2}s`;
-            document.body.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 3000);
-        }
     }, (error) => {
         console.log('FAILED...', error);
         alert('Error sending message. Please try again later.');
@@ -144,6 +130,18 @@ function handleContactForm(event) {
     .finally(() => {
         isFormSubmitting = false;
     });
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
 
 function createParticles(count) {
@@ -203,24 +201,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const mobileMenu = new MobileMenu();
 
         const goToTopButtons = document.querySelectorAll('.go-to-top');
+        const handleScroll = debounce(() => {
+            const scrollPosition = window.scrollY;
+            goToTopButtons.forEach(button => {
+                button.style.display = scrollPosition > 300 ? 'block' : 'none';
+            });
+        }, 100);
+        window.addEventListener('scroll', handleScroll);
+
         goToTopButtons.forEach(button => {
             button.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            goToTopButtons.forEach(button => {
-                if (scrollPosition > 300) {
-                    button.style.display = 'block';
-                } else {
-                    button.style.display = 'none';
-                }
-            });
-        });
-
-        createParticles(50);
+        createParticles(20); // Reduced from 50
+        createBackgroundShapes(10); // Reduced from 20
 
         document.querySelectorAll('.skill-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
@@ -231,7 +227,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.querySelector('.skill-spotlight')?.style.setProperty('--y', `${y}px`);
             });
         });
-
-        createBackgroundShapes(20); // Create 20 floating shapes
     }
 });
