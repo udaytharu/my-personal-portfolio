@@ -88,7 +88,7 @@ class MobileMenu {
     }
 }
 
-//cv download functionality
+// CV download functionality
 function downloadCV() {
     const cvUrl = 'path/to/your/cv.pdf'; // Replace with actual CV URL
     const link = document.createElement('a');
@@ -99,7 +99,7 @@ function downloadCV() {
     document.body.removeChild(link);
 }
 
-// EmailJS integration for contact form
+// EmailJS integration for contact form with improved error handling
 let isFormSubmitting = false;
 
 function handleContactForm(event) {
@@ -115,6 +115,14 @@ function handleContactForm(event) {
     const userEmail = formData.get('user_email');
     const message = formData.get('message');
 
+    // Check if emailjs is available
+    if (typeof emailjs === 'undefined' || typeof emailjs.send !== 'function') {
+        console.error('EmailJS is not properly initialized. Please check your User ID and library loading.');
+        alert('Error: Email service is unavailable. Please try again later or contact me directly.');
+        isFormSubmitting = false;
+        return;
+    }
+
     emailjs.send('service_rusvorz', form.getAttribute('data-email'), {
         from_name: userName,
         from_email: userEmail,
@@ -126,9 +134,20 @@ function handleContactForm(event) {
         console.log('SUCCESS!', response.status, response.text);
         alert('We will reply soon!');
         form.reset();
+
+        // Confetti animation (preserved)
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 3000);
+        }
     }, (error) => {
-        console.log('FAILED...', error);
-        alert('Error sending message. Please try again later.');
+        console.error('FAILED...', error);
+        alert('Error sending message. Please try again later or contact me directly at udaytharu813@gmail.com.');
     })
     .finally(() => {
         isFormSubmitting = false;
@@ -207,19 +226,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const mobileMenu = new MobileMenu();
 
-        const goToTopButton = document.querySelector('.go-to-top'); // Updated to target a single button
+        const goToTopButton = document.querySelector('.go-to-top');
         const handleScroll = debounce(() => {
             const scrollPosition = window.scrollY;
             goToTopButton.style.display = scrollPosition > 300 ? 'block' : 'none';
         }, 100);
         window.addEventListener('scroll', handleScroll);
 
-        goToTopButton.addEventListener('click', () => { // Updated to target a single button
+        goToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        createParticles(20); // Reduced from 50
-        createBackgroundShapes(10); // Reduced from 20
+        createParticles(20);
+        createBackgroundShapes(10);
 
         document.querySelectorAll('.skill-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {

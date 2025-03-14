@@ -22,7 +22,18 @@
             .items-center { align-items: center; }
             .justify-between { justify-content: space-between; }
         </style>
+        <script>
+            // Initialize EmailJS only if the library is loaded
+            document.addEventListener('DOMContentLoaded', () => {
+                if (typeof emailjs !== 'undefined') {
+                    emailjs.init('xwC3cQRh_vNAZ1jVu'); // Replace with your actual User ID
+                } else {
+                    console.error('EmailJS library failed to load. Check your internet connection or script inclusion.');
+                }
+            });
+        </script>
     </head>
+    
 <body class="bg-gray-100 text-gray-900">
     <!-- Background Animation Container -->
     <div class="background-shapes"></div>
