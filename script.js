@@ -50,6 +50,7 @@ class TypingAnimation {
     }
 }
 
+// Mobile menu hamburger button functionality
 class MobileMenu {
     constructor() {
         this.menuButton = document.getElementById('menuButton');
@@ -87,6 +88,7 @@ class MobileMenu {
     }
 }
 
+//cv download functionality
 function downloadCV() {
     const cvUrl = 'path/to/your/cv.pdf'; // Replace with actual CV URL
     const link = document.createElement('a');
@@ -97,6 +99,7 @@ function downloadCV() {
     document.body.removeChild(link);
 }
 
+// EmailJS integration for contact form
 let isFormSubmitting = false;
 
 function handleContactForm(event) {
@@ -132,6 +135,7 @@ function handleContactForm(event) {
     });
 }
 
+// Debounce function
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -144,6 +148,7 @@ function debounce(func, wait) {
     };
 }
 
+// Particles animation
 function createParticles(count) {
     const particlesContainer = document.createElement('div');
     particlesContainer.className = 'particles';
@@ -160,6 +165,7 @@ function createParticles(count) {
     }
 }
 
+// Background shapes animation
 function createBackgroundShapes(count) {
     const shapesContainer = document.querySelector('.background-shapes');
     const shapes = ['circle', 'triangle'];
@@ -183,6 +189,7 @@ function createBackgroundShapes(count) {
     }
 }
 
+// Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     if (!window.contactFormInitialized) {
         const contactForm = document.querySelector('#contact-form');
@@ -200,19 +207,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const mobileMenu = new MobileMenu();
 
-        const goToTopButtons = document.querySelectorAll('.go-to-top');
+        const goToTopButton = document.querySelector('.go-to-top'); // Updated to target a single button
         const handleScroll = debounce(() => {
             const scrollPosition = window.scrollY;
-            goToTopButtons.forEach(button => {
-                button.style.display = scrollPosition > 300 ? 'block' : 'none';
-            });
+            goToTopButton.style.display = scrollPosition > 300 ? 'block' : 'none';
         }, 100);
         window.addEventListener('scroll', handleScroll);
 
-        goToTopButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+        goToTopButton.addEventListener('click', () => { // Updated to target a single button
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
         createParticles(20); // Reduced from 50
