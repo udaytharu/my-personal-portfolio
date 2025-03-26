@@ -39,34 +39,39 @@
     <div class="background-shapes"></div>
 
    <!-- Navigation Menu -->
-<nav class="bg-white shadow-md">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold" id="logo" role="banner">
-            Uday Tharu
-        </div>
-        <div class="hidden md:flex space-x-6">
-            <a class="hover:text-blue-500" href="#home">Home</a>
-            <a class="hover:text-blue-500" href="#about">About</a>
-            <a class="hover:text-blue-500" href="#skills">Skills</a>
-            <a class="hover:text-blue-500" href="#projects">Projects</a>
-            <a class="hover:text-blue-500" href="#contact">Contact</a>
-        </div>
-        <div class="md:hidden">
-            <button class="md:hidden" aria-label="Toggle menu" aria-expanded="false" id="menuButton">
-                <span class="bar" aria-hidden="true"></span>
-            </button>
+<nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-lg transition-all duration-300">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+            <a href="#home" id="logo" class="text-2xl font-bold">Uday Tharu</a>
+            <div class="flex items-center space-x-4">
+                <button id="menuButton" class="md:hidden" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                </button>
+                <div class="hidden md:flex space-x-6">
+                    <a class="hover:text-blue-500 transition-all duration-300" href="#home">Home</a>
+                    <a class="hover:text-blue-500 transition-all duration-300" href="#about">About</a>
+                    <a class="hover:text-blue-500 transition-all duration-300" href="#skills">Skills</a>
+                    <a class="hover:text-blue-500 transition-all duration-300" href="#projects">Projects</a>
+                    <a class="hover:text-blue-500 transition-all duration-300" href="#contact">Contact</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="md:hidden hidden" id="dropdownMenu" role="menu" aria-labelledby="menuButton">
         <div class="flex flex-col space-y-4 p-4">
-            <a class="hover:text-blue-500" href="#home">Home</a>
-            <a class="hover:text-blue-500" href="#about">About</a>
-            <a class="hover:text-blue-500" href="#skills">Skills</a>
-            <a class="hover:text-blue-500" href="#projects">Projects</a>
-            <a class="hover:text-blue-500" href="#contact">Contact</a>
+            <a class="hover:text-blue-500 transition-all duration-300" href="#home">Home</a>
+            <a class="hover:text-blue-500 transition-all duration-300" href="#about">About</a>
+            <a class="hover:text-blue-500 transition-all duration-300" href="#skills">Skills</a>
+            <a class="hover:text-blue-500 transition-all duration-300" href="#projects">Projects</a>
+            <a class="hover:text-blue-500 transition-all duration-300" href="#contact">Contact</a>
         </div>
     </div>
 </nav>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-1001">
+        <div id="scroll-progress" class="h-full bg-blue-500 transition-all duration-300" style="width: 0%"></div>
+    </div>
 
     <!-- Home Section -->
     <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center relative" id="home">
@@ -83,7 +88,7 @@
                 </h3>
             </div>
             <p class="mt-4">
-                I’m a passionate web developer with a strong focus on creating visually appealing and highly functional websites. With years of experience in frontend development and design, I specialize in crafting responsive, user-friendly interfaces that deliver seamless experiences across devices. My goal is to bring your ideas to life through clean code, modern design, and innovative solutions.
+                I'm a passionate web developer with a strong focus on creating visually appealing and highly functional websites. With years of experience in frontend development and design, I specialize in crafting responsive, user-friendly interfaces that deliver seamless experiences across devices. My goal is to bring your ideas to life through clean code, modern design, and innovative solutions.
             </p>
             <div class="flex space-x-4 mt-4">
                 <a class="text-blue-500 hover:text-blue-700" href="https://www.linkedin.com/in/uday-tharu-25b9042ba/" target="_blank">
@@ -119,7 +124,7 @@
                 <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
                     <h3 class="text-2xl font-bold">Designing is My Passion</h3>
                     <p class="mt-4">
-                        I’ve always been fascinated by the intersection of design and technology, which led me to pursue a career in web development. Over the years, I’ve honed my skills in creating intuitive and aesthetically pleasing digital experiences. I thrive on solving complex problems, whether it’s optimizing a website for performance or designing a layout that captivates users. Let’s build something amazing together!
+                        I've always been fascinated by the intersection of design and technology, which led me to pursue a career in web development. Over the years, I've honed my skills in creating intuitive and aesthetically pleasing digital experiences. I thrive on solving complex problems, whether it's optimizing a website for performance or designing a layout that captivates users. Let's build something amazing together!
                     </p>
                     <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300" onclick="downloadCV()">
                         Download CV
@@ -137,7 +142,7 @@
                 <div class="md:w-1/2">
                     <h3 class="text-2xl font-bold">Skills Reflect Our Knowledge</h3>
                     <p class="mt-4">
-                        My expertise spans a variety of technologies, allowing me to build dynamic and responsive websites tailored to clients’ needs. I’m proficient in both frontend and backend development, with a keen eye for design and usability. From crafting pixel-perfect layouts to writing efficient code, I ensure every project reflects my dedication to quality and innovation.
+                        My expertise spans a variety of technologies, allowing me to build dynamic and responsive websites tailored to clients' needs. I'm proficient in both frontend and backend development, with a keen eye for design and usability. From crafting pixel-perfect layouts to writing efficient code, I ensure every project reflects my dedication to quality and innovation.
                     </p>
                     <div class="flex items-center mt-8">
                         <div class="text-4xl font-bold">2</div>
@@ -181,77 +186,80 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="py-16 bg-white" id="projects">
+    <section id="projects" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <h2 class="text-4xl font-bold text-center mb-12">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card" style="--delay: 0.2s;">
-                    <div class="project-inner">
-                        <div class="project-front">
-                            <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/wkQR3eNY1i3MASq4UKdiSuU08fFGqbLTe7egY4LyHmckAGcQB.jpg');"></div>
-                            <h3 class="text-xl font-bold text-gray-900 mt-4">Local Business Website</h3>
-                            <div class="flex space-x-2 mt-2">
-                                <span class="tech-badge bg-blue-100 text-blue-800">HTML</span>
-                                <span class="tech-badge bg-blue-100 text-blue-800">CSS</span>
-                                <span class="tech-badge bg-blue-100 text-blue-800">JavaScript</span>
+                <div class="project-card h-[400px]">
+                    <div class="project-inner h-full">
+                        <div class="project-front h-full">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Project 1" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Project 1</h3>
+                                <p class="text-gray-600">A brief description of the project and its key features.</p>
                             </div>
                         </div>
-                        <div class="project-back">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Local Business Website</h3>
-                            <p class="text-gray-700 mb-4">
-                                A fully responsive website designed for a local business, featuring a clean and modern layout. I focused on optimizing the site for speed and accessibility, ensuring it performs well on all devices.
-                            </p>
-                            <div class="flex space-x-4">
-                                <a href="https://example.com/project1" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
-                                <a href="https://github.com/udaytharu/project1" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                        <div class="project-back h-full">
+                            <div class="p-6 flex flex-col justify-center items-center">
+                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
+                                <p class="text-gray-600 mb-4">Detailed description of the project, technologies used, and your role.</p>
+                                <div class="flex gap-4">
+                                    <a href="#" class="text-blue-500 hover:text-blue-700">View Demo</a>
+                                    <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Project 2 -->
-                <div class="project-card" style="--delay: 0.4s;">
-                    <div class="project-inner">
-                        <div class="project-front">
-                            <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/aQBoDiBQuhICMhil8DliEsDuKzcNBxbea6uaV1qKIwXEwgDKA.jpg');"></div>
-                            <h3 class="text-xl font-bold text-gray-900 mt-4">E-Commerce Platform</h3>
-                            <div class="flex space-x-2 mt-2">
-                                <span class="tech-badge bg-blue-100 text-blue-800">React</span>
-                                <span class="tech-badge bg-blue-100 text-blue-800">Node.js</span>
-                                <span class="tech-badge bg-blue-100 text-blue-800">MongoDB</span>
+                <div class="project-card h-[400px]">
+                    <div class="project-inner h-full">
+                        <div class="project-front h-full">
+                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Project 2" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Project 2</h3>
+                                <p class="text-gray-600">A brief description of the project and its key features.</p>
                             </div>
                         </div>
-                        <div class="project-back">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">E-Commerce Platform</h3>
-                            <p class="text-gray-700 mb-4">
-                                An e-commerce platform focused on user engagement and seamless transactions, with features like product filtering and a secure checkout system.
-                            </p>
-                            <div class="flex space-x-4">
-                                <a href="https://example.com/project2" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
-                                <a href="https://github.com/udaytharu/project2" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                        <div class="project-back h-full">
+                            <div class="p-6 flex flex-col justify-center items-center">
+                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
+                                <p class="text-gray-600 mb-4">Detailed description of the project, technologies used, and your role.</p>
+                                <div class="flex gap-4">
+                                    <a href="#" class="text-blue-500 hover:text-blue-700">View Demo</a>
+                                    <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Project 3 -->
-                <div class="project-card" style="--delay: 0.6s;">
-                    <div class="project-inner">
-                        <div class="project-front">
-                            <div class="project-image" style="background-image: url('https://storage.googleapis.com/a1aa/image/fYystDhe0Fh1NEaU7RaU5tfr6hijxWV5ExytZ6Aqtm9MADOoA.jpg');"></div>
-                            <h3 class="text-xl font-bold text-gray-900 mt-4">Mobile App Interface</h3>
-                            <div class="flex space-x-2 mt-2">
-                                <span class="tech-badge bg-blue-100 text-blue-800">Figma</span>
-                                <span class="tech-badge bg-blue-100 text-blue-800">Flutter</span>
+                <div class="project-card h-[400px]">
+                    <div class="project-inner h-full">
+                        <div class="project-front h-full">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                                 alt="Project 3" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Project 3</h3>
+                                <p class="text-gray-600">A brief description of the project and its key features.</p>
                             </div>
                         </div>
-                        <div class="project-back">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile App Interface</h3>
-                            <p class="text-gray-700 mb-4">
-                                A mobile app interface designed with user-centered principles, featuring a sleek and minimalistic design with easy navigation.
-                            </p>
-                            <div class="flex space-x-4">
-                                <a href="https://example.com/project3" target="_blank" class="project-btn bg-blue-500 text-white hover:bg-blue-600">Live Demo</a>
-                                <a href="https://github.com/udaytharu/project3" target="_blank" class="project-btn bg-gray-500 text-white hover:bg-gray-600">Source Code</a>
+                        <div class="project-back h-full">
+                            <div class="p-6 flex flex-col justify-center items-center">
+                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
+                                <p class="text-gray-600 mb-4">Detailed description of the project, technologies used, and your role.</p>
+                                <div class="flex gap-4">
+                                    <a href="#" class="text-blue-500 hover:text-blue-700">View Demo</a>
+                                    <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -266,7 +274,7 @@
             <div class="text-center">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Get in Touch</h2>
                 <p class="mt-4 text-lg leading-6 text-gray-500">
-                    I’m excited to collaborate on your next project! Whether you need a stunning website, a custom web application, or design consultation, feel free to reach out. Let’s discuss your ideas and turn them into reality.
+                    I'm excited to collaborate on your next project! Whether you need a stunning website, a custom web application, or design consultation, feel free to reach out. Let's discuss your ideas and turn them into reality.
                 </p>
             </div>
             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
