@@ -1,3 +1,29 @@
+/* Navigation Bar */
+nav {
+    position: fixed; /* Fix the navigation bar to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it stays above other content */
+    background-color: white; /* Ensure the background is solid */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+}
+
+/* Add padding to the Home section to account for the fixed nav height */
+#home {
+    padding-top: 80px; /* Adjust this value based on the height of your nav bar */
+}
+
+/* Ensure the dropdown menu is positioned correctly on mobile */
+#dropdownMenu {
+    position: absolute;
+    top: 100%; /* Position it directly below the nav bar */
+    left: 0;
+    width: 100%;
+    background-color: white; /* Match the nav background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+}
+
 /* Increase font weight of the logo */
 #logo {
     transition: all 0.3s ease;
@@ -17,22 +43,65 @@
 nav .space-x-6 a {
     font-size: 1.25rem;
     font-weight: 600;
-    transition: color 0.3s ease;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    padding-bottom: 5px;
 }
 
+/* Underline effect on hover */
+nav .space-x-6 a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(55, 117, 251);
+    transition: width 0.3s ease;
+}
+
+nav .space-x-6 a:hover::after {
+    width: 100%;
+}
+
+/* Hover effect with color, scale, and glow */
 nav .space-x-6 a:hover {
     color: rgb(55, 117, 251);
+    transform: scale(1.05);
+    text-shadow: 0 0 8px rgba(55, 117, 251, 0.5);
 }
 
 /* Increase font weight of mobile dropdown menu links */
 #dropdownMenu a {
     font-size: 1.25rem;
     font-weight: 600;
-    transition: color 0.3s ease;
+    position: relative;
+    display: inline-block; /* Ensure the link width matches the text content */
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    padding-bottom: 5px;
 }
 
+/* Underline effect on hover for mobile menu */
+#dropdownMenu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(55, 117, 251);
+    transition: width 0.3s ease;
+}
+
+#dropdownMenu a:hover::after {
+    width: 100%; /* This now applies to the inline-block width (text width), not the container */
+}
+
+/* Hover effect with color, scale, and glow for mobile menu */
 #dropdownMenu a:hover {
     color: rgb(55, 117, 251);
+    transform: scale(1.05);
+    text-shadow: 0 0 8px rgba(55, 117, 251, 0.5);
 }
 
 /* Ensure responsiveness for smaller screens */
@@ -50,6 +119,10 @@ nav .space-x-6 a:hover {
     #dropdownMenu a {
         font-size: 1.1rem;
         font-weight: 500;
+    }
+
+    #home {
+        padding-top: 60px; /* Adjust for smaller nav height on mobile */
     }
 }
 
@@ -540,4 +613,106 @@ section:nth-child(5) { animation-delay: 0.5s; }
         opacity: 1;
         transform: translateY(0) rotate(0deg);
     }
+}
+
+/* Form Group Styling */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+/* Input and Textarea Styling */
+.form-group input,
+.form-group textarea {
+    padding-left: 2.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid #d1d5db;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    transform: scale(1.01);
+}
+
+/* Form Icon Styling */
+.form-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.form-group textarea + .form-icon {
+    top: 0rem;
+    transform: none;
+}
+
+/* Error State Styling */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+}
+
+.form-group input:valid:not(:placeholder-shown),
+.form-group textarea:valid:not(:placeholder-shown) {
+    border-color: #10b981;
+}
+
+/* Error Message Styling */
+.form-error {
+    position: absolute;
+    bottom: -1.25rem;
+    left: 0;
+    font-size: 0.875rem;
+}
+
+/* Submit Button Styling */
+button[type="submit"] {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button[type="submit"]:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.button-spinner {
+    display: none;
+}
+
+/* Success/Error Message Styling */
+#form-message {
+    padding: 1rem;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+#form-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#form-message.success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+#form-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+footer a {
+    text-decoration: underline;
 }

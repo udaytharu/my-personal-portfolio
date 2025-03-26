@@ -106,20 +106,68 @@ function handleContactForm(event) {
     event.preventDefault();
     if (isFormSubmitting) return;
 
-    isFormSubmitting = true;
-    console.log('Form submitted');
-
     const form = event.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const buttonText = submitBtn.querySelector('.button-text');
+    const buttonSpinner = submitBtn.querySelector('.button-spinner');
+    const formMessage = document.getElementById('form-message');
     const formData = new FormData(form);
     const userName = formData.get('user_name');
     const userEmail = formData.get('user_email');
     const message = formData.get('message');
 
+    // Real-time validation
+    let isValid = true;
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const messageError = document.getElementById('message-error');
+
+    // Reset error messages
+    nameError.classList.add('hidden');
+    emailError.classList.add('hidden');
+    messageError.classList.add('hidden');
+    formMessage.classList.remove('show', 'success', 'error');
+
+    if (!userName.trim()) {
+        nameError.textContent = 'Name is required';
+        nameError.classList.remove('hidden');
+        isValid = false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(userEmail)) {
+        emailError.textContent = 'Please enter a valid email';
+        emailError.classList.remove('hidden');
+        isValid = false;
+    }
+
+    if (!message.trim()) {
+        messageError.textContent = 'Message is required';
+        messageError.classList.remove('hidden');
+        isValid = false;
+    }
+
+    if (!isValid) return;
+
+    isFormSubmitting = true;
+
+    // Disable the button and show loading state
+    submitBtn.disabled = true;
+    buttonText.textContent = 'Sending...';
+    buttonSpinner.classList.remove('hidden');
+
     // Check if emailjs is available
     if (typeof emailjs === 'undefined' || typeof emailjs.send !== 'function') {
         console.error('EmailJS is not properly initialized. Please check your User ID and library loading.');
-        alert('Error: Email service is unavailable. Please try again later or contact me directly.');
+        formMessage.textContent = 'Error: Email service is unavailable. Please try again later or contact me directly at udaytharu813@gmail.com.';
+        formMessage.classList.add('show', 'error');
         isFormSubmitting = false;
+        submitBtn.disabled = false;
+        buttonText.textContent = 'Submit';
+        buttonSpinner.classList.add('hidden');
         return;
     }
 
@@ -132,7 +180,8 @@ function handleContactForm(event) {
     })
     .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
-        alert('We will reply soon!');
+        formMessage.textContent = `We will reply soon, ${userName}! Thank you for reaching out.`;
+        formMessage.classList.add('show', 'success');
         form.reset();
 
         // Confetti animation (preserved)
@@ -147,12 +196,42 @@ function handleContactForm(event) {
         }
     }, (error) => {
         console.error('FAILED...', error);
-        alert('Error sending message. Please try again later or contact me directly at udaytharu813@gmail.com.');
+        formMessage.textContent = 'Error sending message. Please try again later or contact me directly at udaytharu813@gmail.com.';
+        formMessage.classList.add('show', 'error');
     })
     .finally(() => {
+        // Re-enable the button and reset text
         isFormSubmitting = false;
+        submitBtn.disabled = false;
+        buttonText.textContent = 'Submit';
+        buttonSpinner.classList.add('hidden');
     });
 }
+
+// Add real-time validation on input
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('#contact-form');
+    if (form) {
+        const inputs = form.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                const errorSpan = document.getElementById(`${input.id}-error`);
+                errorSpan.classList.add('hidden');
+
+                if (input.id === 'email') {
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(input.value) && input.value !== '') {
+                        errorSpan.textContent = 'Please enter a valid email';
+                        errorSpan.classList.remove('hidden');
+                    }
+                } else if (!input.value.trim() && input.hasAttribute('required')) {
+                    errorSpan.textContent = `${input.name.replace('user_', '').charAt(0).toUpperCase() + input.name.slice(6)} is required`;
+                    errorSpan.classList.remove('hidden');
+                }
+            });
+        });
+    }
+});
 
 // Debounce function
 function debounce(func, wait) {

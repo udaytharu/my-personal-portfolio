@@ -283,7 +283,7 @@
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-gray-500 text-2xl"></i>
                             <div class="ml-4 text-lg text-gray-700">
-                                <a href="mailto:udaytharu813@gmail.com">udaytharu813@gmail.com</a>
+                                <a href="/cdn-cgi/l/email-protection#d0a5b4b1a9a4b8b1a2a5e8e1e390b7bdb1b9bcfeb3bfbd"><span class="__cf_email__" data-cfemail="c5b0a1a4bcb1ada4b7b0fdf4f685a2a8a4aca9eba6aaa8">[email&#160;protected]</span></a>
                             </div>
                         </div>
                     </div>
@@ -295,31 +295,39 @@
                     </div>
                 </div>
                 <div>
-                    <form id="contact-form" data-email="template_90obdbh">
-                        <div>
+                    <form id="contact-form" data-email="template_90obdbh" aria-label="Contact Form">
+                        <div class="form-group">
                             <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <div class="mt-1">
-                                <input type="text" name="user_name" id="name" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Your Name" required>
+                            <div class="mt-1 relative">
+                                <input type="text" name="user_name" id="name" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition-all duration-300" placeholder="Your Name" required aria-describedby="name-error">
+                                <span class="form-icon"><i class="fas fa-user text-gray-400"></i></span>
+                                <span id="name-error" class="form-error text-red-500 text-sm hidden" role="alert"></span>
                             </div>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-4 form-group">
                             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <div class="mt-1">
-                                <input type="email" name="user_email" id="email" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Your Email" required>
+                            <div class="mt-1 relative">
+                                <input type="email" name="user_email" id="email" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition-all duration-300" placeholder="Your Email" required aria-describedby="email-error">
+                                <span class="form-icon"><i class="fas fa-envelope text-gray-400"></i></span>
+                                <span id="email-error" class="form-error text-red-500 text-sm hidden" role="alert"></span>
                             </div>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-4 form-group">
                             <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <div class="mt-1">
-                                <textarea name="message" id="message" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Your Message" required></textarea>
+                            <div class="mt-1 relative">
+                                <textarea name="message" id="message" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition-all duration-300" placeholder="Your Message" required aria-describedby="message-error"></textarea>
+                                <span class="form-icon"><i class="fas fa-comment text-gray-400"></i></span>
+                                <span id="message-error" class="form-error text-red-500 text-sm hidden" role="alert"></span>
                             </div>
                         </div>
                         <div class="mt-4">
-                            <button type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                Submit
+                            <button type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 relative overflow-hidden">
+                                <span class="button-text">Submit</span>
+                                <span class="button-spinner hidden"><i class="fas fa-spinner fa-spin"></i></span>
                             </button>
                         </div>
                     </form>
+                    <div id="form-message" class="mt-4 text-center hidden" role="status"></div>
                 </div>
             </div>
         </div>
@@ -337,6 +345,7 @@
     <!-- Floating Go to Top Button -->
     <button class="go-to-top">↑</button>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'920296aeec434560',t:'MTc0MTk0MjkwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
