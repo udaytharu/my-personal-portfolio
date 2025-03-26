@@ -646,7 +646,7 @@ section:nth-child(5) { animation-delay: 0.5s; }
 }
 
 .form-group textarea + .form-icon {
-    top: 0rem;
+    top: 2rem;
     transform: none;
 }
 
