@@ -117,7 +117,7 @@ class MobileMenu {
         this.menuButton.setAttribute('aria-expanded', 'false');
         this.dropdownMenu.classList.add('menu-close');
         setTimeout(() => {
-            this.dropdownMenu.classList.add('hidden');
+        this.dropdownMenu.classList.add('hidden');
             this.dropdownMenu.classList.remove('menu-close');
         }, 300);
     }
@@ -324,33 +324,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
         window.addEventListener('scroll', handleScroll);
 
-        goToTopButton.addEventListener('click', () => {
-            // Add click animation
-            goToTopButton.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                goToTopButton.style.transform = 'scale(1)';
-            }, 100);
-
-            // Smooth scroll with easing
-            const startPosition = window.pageYOffset;
-            const startTime = performance.now();
-            const duration = 1000; // 1 second
-
-            function scroll(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                // Easing function (cubic-bezier)
-                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-                window.scrollTo(0, startPosition * (1 - easeOutCubic));
-
-                if (progress < 1) {
+        // Smooth scroll to top function
+        function scrollToTop() {
+            const scrollDuration = 500; // Duration in milliseconds (lower = faster)
+            const scrollStep = -window.scrollY / (scrollDuration / 15);
+            
+            function scroll() {
+                if (window.scrollY !== 0) {
+                    window.scrollBy(0, scrollStep);
                     requestAnimationFrame(scroll);
                 }
             }
-
+            
             requestAnimationFrame(scroll);
-        });
+        }
+
+        // Update the click event listener for the Go to Top button
+        if (goToTopButton) {
+        goToTopButton.addEventListener('click', () => {
+                // Add launching class for animation
+                goToTopButton.classList.add('launching');
+                
+                // Scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                
+                // Remove the launching class and reset button after animation
+                setTimeout(() => {
+                    goToTopButton.classList.remove('launching');
+                }, 1000);
+            });
+        }
 
         createParticles(20);
         createBackgroundShapes(10);
@@ -376,6 +382,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize form validation
         initFormValidation();
+
+        // Initialize project cards
+        initProjectCards();
     }
 });
 
@@ -523,7 +532,13 @@ function validateField(input) {
         errorMessage = 'Please enter a valid email address';
     } else if (input.hasAttribute('required')) {
         isValid = input.value.trim().length > 0;
-        errorMessage = `${input.name.replace('user_', '').charAt(0).toUpperCase() + input.name.slice(6)} is required`;
+        if (input.name === 'message') {
+            errorMessage = 'Message is required';
+        } else {
+            // For other fields (name, email)
+            const fieldName = input.name.replace('user_', '');
+            errorMessage = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
+        }
     }
 
     if (!isValid) {
@@ -537,3 +552,110 @@ function validateField(input) {
 
     return isValid;
 }
+
+// Initialize project cards
+function initProjectCards() {
+    const projectCards = document.querySelectorAll('.project-card');
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    
+    projectCards.forEach(card => {
+        // Remove any existing flipped class
+        card.classList.remove('flipped');
+        
+        card.addEventListener('click', (e) => {
+            // Prevent flip if clicking on links
+            if (e.target.tagName.toLowerCase() === 'a') return;
+            
+            // Toggle flip class
+            card.classList.toggle('flipped');
+        });
+    });
+
+    // Update cards on resize
+    window.addEventListener('resize', debounce(() => {
+        const isMobileNow = window.matchMedia('(max-width: 767px)').matches;
+        if (isMobile !== isMobileNow) {
+            projectCards.forEach(card => card.classList.remove('flipped'));
+        }
+    }, 250));
+}
+
+// Update the scroll-to-top functionality
+function initScrollToTop() {
+    const goToTopButton = document.querySelector('.go-to-top');
+    let isAnimating = false;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            goToTopButton.classList.add('show');
+        } else {
+            goToTopButton.classList.remove('show');
+        }
+    });
+
+    // Create smoke effect
+    function createSmoke(x, y) {
+        const smoke = document.createElement('div');
+        smoke.style.cssText = `
+            position: fixed;
+            left: ${x}px;
+            top: ${y}px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            z-index: 999;
+        `;
+        document.body.appendChild(smoke);
+
+        // Animate and remove smoke
+        smoke.animate([
+            { transform: 'translateY(0) scale(1)', opacity: 0.4 },
+            { transform: 'translateY(-20px) scale(2)', opacity: 0 }
+        ], {
+            duration: 1000,
+            easing: 'ease-out'
+        }).onfinish = () => smoke.remove();
+    }
+
+    // Handle click event
+    goToTopButton.addEventListener('click', () => {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        // Add launching class for animation
+        goToTopButton.classList.add('launching');
+
+        // Create smoke effect
+        const rect = goToTopButton.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const bottomY = rect.bottom;
+
+        // Create multiple smoke particles
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                createSmoke(
+                    centerX - 10 + Math.random() * 20,
+                    bottomY + Math.random() * 10
+                );
+            }, i * 100);
+        }
+
+        // Smooth scroll to top
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
+        // Reset button after animation
+        setTimeout(() => {
+            goToTopButton.classList.remove('launching');
+            isAnimating = false;
+        }, 1200); // Match animation duration
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initScrollToTop);
