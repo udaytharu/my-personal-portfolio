@@ -151,60 +151,10 @@ function handleContactForm(event) {
     const userEmail = formData.get('user_email');
     const message = formData.get('message');
 
-    // Real-time validation
-    let isValid = true;
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    const nameError = document.getElementById('name-error');
-    const emailError = document.getElementById('email-error');
-    const messageError = document.getElementById('message-error');
-
-    // Reset error messages
-    nameError.classList.add('hidden');
-    emailError.classList.add('hidden');
-    messageError.classList.add('hidden');
-    formMessage.classList.remove('show', 'success', 'error');
-
-    if (!userName.trim()) {
-        nameError.textContent = 'Name is required';
-        nameError.classList.remove('hidden');
-        isValid = false;
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(userEmail)) {
-        emailError.textContent = 'Please enter a valid email';
-        emailError.classList.remove('hidden');
-        isValid = false;
-    }
-
-    if (!message.trim()) {
-        messageError.textContent = 'Message is required';
-        messageError.classList.remove('hidden');
-        isValid = false;
-    }
-
-    if (!isValid) return;
-
-    isFormSubmitting = true;
-
-    // Disable the button and show loading state
+    // Show loading state
     submitBtn.disabled = true;
-    buttonText.textContent = 'Sending...';
+    buttonText.classList.add('hidden');
     buttonSpinner.classList.remove('hidden');
-
-    // Check if emailjs is available
-    if (typeof emailjs === 'undefined' || typeof emailjs.send !== 'function') {
-        console.error('EmailJS is not properly initialized. Please check your User ID and library loading.');
-        formMessage.textContent = 'Error: Email service is unavailable. Please try again later or contact me directly at udaytharu813@gmail.com.';
-        formMessage.classList.add('show', 'error');
-        isFormSubmitting = false;
-        submitBtn.disabled = false;
-        buttonText.textContent = 'Submit';
-        buttonSpinner.classList.add('hidden');
-        return;
-    }
 
     emailjs.send('service_rusvorz', form.getAttribute('data-email'), {
         from_name: userName,
@@ -215,11 +165,19 @@ function handleContactForm(event) {
     })
     .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
-        formMessage.textContent = `We will reply soon, ${userName}! Thank you for reaching out.`;
-        formMessage.classList.add('show', 'success');
+        formMessage.innerHTML = `
+            <div class="alert-content">
+                <div class="alert-icon">✓</div>
+                <div class="alert-text">
+                    <h3>Message Sent Successfully! 🎉</h3>
+                    <p>Thank you ${userName}, I'll get back to you soon!</p>
+                </div>
+            </div>
+        `;
+        formMessage.className = 'show success';
         form.reset();
 
-        // Confetti animation (preserved)
+        // Create confetti effect
         for (let i = 0; i < 100; i++) {
             const confetti = document.createElement('div');
             confetti.className = 'confetti';
@@ -229,16 +187,31 @@ function handleContactForm(event) {
             document.body.appendChild(confetti);
             setTimeout(() => confetti.remove(), 3000);
         }
-    }, (error) => {
+
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+            formMessage.classList.remove('show', 'success');
+            setTimeout(() => {
+                formMessage.innerHTML = '';
+            }, 300);
+        }, 5000);
+    })
+    .catch((error) => {
         console.error('FAILED...', error);
-        formMessage.textContent = 'Error sending message. Please try again later or contact me directly at udaytharu813@gmail.com.';
-        formMessage.classList.add('show', 'error');
+        formMessage.innerHTML = `
+            <div class="alert-content">
+                <div class="alert-icon">✕</div>
+                <div class="alert-text">
+                    <h3>Message Failed to Send</h3>
+                    <p>Please try again or contact me directly at udaytharu813@gmail.com</p>
+                </div>
+            </div>
+        `;
+        formMessage.className = 'show error';
     })
     .finally(() => {
-        // Re-enable the button and reset text
-        isFormSubmitting = false;
         submitBtn.disabled = false;
-        buttonText.textContent = 'Submit';
+        buttonText.classList.remove('hidden');
         buttonSpinner.classList.add('hidden');
     });
 }
@@ -451,32 +424,95 @@ function initBackgroundShapes() {
     }
 }
 
-// Enhanced Form Validation
+// Enhanced Form Validation and Submission
 function initFormValidation() {
-    const form = document.querySelector('#contact-form');
-    if (!form) return;
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const buttonText = submitButton.querySelector('.button-text');
+    const buttonSpinner = submitButton.querySelector('.button-spinner');
 
+    // Real-time validation
     const inputs = form.querySelectorAll('input, textarea');
     inputs.forEach(input => {
-        // Add real-time validation
-        input.addEventListener('input', debounce(() => {
-            validateInput(input);
-        }, 300));
+        input.addEventListener('input', () => {
+            validateField(input);
+        });
 
-        // Add focus effects
         input.addEventListener('focus', () => {
-            input.parentElement.classList.add('focused');
+            input.classList.add('focused');
         });
 
         input.addEventListener('blur', () => {
-            input.parentElement.classList.remove('focused');
+            input.classList.remove('focused');
+            validateField(input);
         });
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Validate all fields
+        let isValid = true;
+        inputs.forEach(input => {
+            if (!validateField(input)) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) return;
+
+        // Show loading state
+        submitButton.disabled = true;
+        buttonText.classList.add('hidden');
+        buttonSpinner.classList.remove('hidden');
+
+        try {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Send email using EmailJS
+            await emailjs.send(
+                form.dataset.email,
+                'template_90obdbh',
+                {
+                    from_name: data.user_name,
+                    from_email: data.user_email,
+                    message: data.message
+                }
+            );
+
+            // Show success message with name
+            formMessage.textContent = `Thank you ${data.user_name} for contacting us, We will reach out to you soon.`;
+            formMessage.className = 'mt-4 text-center show success';
+            
+            // Reset form
+            form.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                formMessage.classList.remove('show');
+                setTimeout(() => {
+                    formMessage.textContent = '';
+                }, 300);
+            }, 5000);
+
+        } catch (error) {
+            console.error('Error sending email:', error);
+            formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
+            formMessage.className = 'mt-4 text-center show error';
+        } finally {
+            // Reset button state
+            submitButton.disabled = false;
+            buttonText.classList.remove('hidden');
+            buttonSpinner.classList.add('hidden');
+        }
     });
 }
 
-function validateInput(input) {
+function validateField(input) {
     const errorSpan = document.getElementById(`${input.id}-error`);
-    if (!errorSpan) return;
+    if (!errorSpan) return true;
 
     let isValid = true;
     let errorMessage = '';

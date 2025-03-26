@@ -289,29 +289,96 @@ section.visible {
     color: #EF4444;
 }
 
-/* Success Message Styling */
+/* Alert Message Styles */
 #form-message {
-    padding: 1rem;
-    border-radius: 0.375rem;
-    font-size: 1rem;
+    position: fixed;
+    top: calc(80px + 1rem); /* Position below nav bar with some spacing */
+    left: 50%;
+    transform: translateX(-50%) translateY(-150%);
+    z-index: 999;
     opacity: 0;
-    transform: translateY(10px);
     transition: all 0.3s ease;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    text-align: center;
 }
 
 #form-message.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    gap: 12px;
+}
+
+.alert-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.success .alert-icon {
+    background-color: #10B981;
+    color: white;
+}
+
+.error .alert-icon {
+    background-color: #EF4444;
+    color: white;
+}
+
+.alert-text {
+    flex: 1;
+}
+
+.alert-text h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.alert-text p {
+    margin: 4px 0 0;
+    font-size: 14px;
 }
 
 #form-message.success {
-    background: #D1FAE5;
+    background-color: #D1FAE5;
+    border-left: 4px solid #10B981;
+}
+
+#form-message.success .alert-text h3 {
     color: #065F46;
 }
 
+#form-message.success .alert-text p {
+    color: #047857;
+}
+
 #form-message.error {
-    background: #FEE2E2;
+    background-color: #FEE2E2;
+    border-left: 4px solid #EF4444;
+}
+
+#form-message.error .alert-text h3 {
     color: #991B1B;
+}
+
+#form-message.error .alert-text p {
+    color: #B91C1C;
 }
 
 /* Enhanced Button Styles */
