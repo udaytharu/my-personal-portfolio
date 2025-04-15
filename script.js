@@ -117,7 +117,7 @@ class MobileMenu {
         this.menuButton.setAttribute('aria-expanded', 'false');
         this.dropdownMenu.classList.add('menu-close');
         setTimeout(() => {
-        this.dropdownMenu.classList.add('hidden');
+            this.dropdownMenu.classList.add('hidden');
             this.dropdownMenu.classList.remove('menu-close');
         }, 300);
     }
@@ -132,6 +132,29 @@ function downloadCV() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+}
+
+// Confetti Effect
+function triggerConfetti() {
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 150, // Increased for more confetti
+            spread: 80, // Slightly wider spread for a fuller effect
+            origin: { y: 0.6 },
+            colors: [
+                '#ff0000', // Red
+                '#00ff00', // Green
+                '#0000ff', // Blue
+                '#ff00ff', // Magenta
+                '#00ffff', // Cyan
+                '#ffff00', // Yellow
+                '#ff8000', // Orange
+                '#8000ff', // Purple
+                '#ff0080', // Pink
+                '#00ff80'  // Mint
+            ]
+        });
+    }
 }
 
 // EmailJS integration for contact form with improved error handling
@@ -176,17 +199,7 @@ function handleContactForm(event) {
         `;
         formMessage.className = 'show success';
         form.reset();
-
-        // Create confetti effect
-        for (let i = 0; i < 100; i++) {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = `${Math.random() * 100}vw`;
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confetti.style.animationDelay = `${Math.random() * 2}s`;
-            document.body.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 3000);
-        }
+        triggerConfetti(); // Add confetti effect
 
         // Hide success message after 5 seconds
         setTimeout(() => {
@@ -341,7 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update the click event listener for the Go to Top button
         if (goToTopButton) {
-        goToTopButton.addEventListener('click', () => {
+            goToTopButton.addEventListener('click', () => {
                 // Add launching class for animation
                 goToTopButton.classList.add('launching');
                 
@@ -482,7 +495,7 @@ function initFormValidation() {
             
             // Send email using EmailJS
             await emailjs.send(
-                form.dataset.email,
+                'service_rusvorz',
                 'template_90obdbh',
                 {
                     from_name: data.user_name,
@@ -492,24 +505,39 @@ function initFormValidation() {
             );
 
             // Show success message with name
-            formMessage.textContent = `Thank you ${data.user_name} for contacting us, We will reach out to you soon.`;
-            formMessage.className = 'mt-4 text-center show success';
-            
-            // Reset form
+            formMessage.innerHTML = `
+                <div class="alert-content">
+                    <div class="alert-icon">✓</div>
+                    <div class="alert-text">
+                        <h3>Message Sent Successfully! 🎉</h3>
+                        <p>Thank you ${data.user_name}, I'll get back to you soon!</p>
+                    </div>
+                </div>
+            `;
+            formMessage.className = 'show success';
             form.reset();
+            triggerConfetti(); // Add confetti effect
             
             // Hide success message after 5 seconds
             setTimeout(() => {
                 formMessage.classList.remove('show');
                 setTimeout(() => {
-                    formMessage.textContent = '';
+                    formMessage.innerHTML = '';
                 }, 300);
             }, 5000);
 
         } catch (error) {
             console.error('Error sending email:', error);
-            formMessage.textContent = 'Sorry, there was an error sending your message. Please try again.';
-            formMessage.className = 'mt-4 text-center show error';
+            formMessage.innerHTML = `
+                <div class="alert-content">
+                    <div class="alert-icon">✕</div>
+                    <div class="alert-text">
+                        <h3>Message Failed to Send</h3>
+                        <p>Please try again or contact me directly at udaytharu813@gmail.com</p>
+                    </div>
+                </div>
+            `;
+            formMessage.className = 'show error';
         } finally {
             // Reset button state
             submitButton.disabled = false;

@@ -352,7 +352,7 @@ section.visible {
 
 .success .alert-icon {
     background-color: #10B981;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .error .alert-icon {
@@ -368,11 +368,13 @@ section.visible {
     margin: 0;
     font-size: 18px;
     font-weight: 600;
+    color: #000000; /* Black for both success and error */
 }
 
 .alert-text p {
     margin: 6px 0 0;
     font-size: 15px;
+    color: #000000; /* Black for both success and error */
 }
 
 #form-message.success {
@@ -383,22 +385,6 @@ section.visible {
 #form-message.error {
     background-color: #FEE2E2;
     border: none;
-}
-
-#form-message.success .alert-text h3 {
-    color: #065F46;
-}
-
-#form-message.success .alert-text p {
-    color: #047857;
-}
-
-#form-message.error .alert-text h3 {
-    color: #991B1B;
-}
-
-#form-message.error .alert-text p {
-    color: #B91C1C;
 }
 
 /* Add backdrop overlay */
