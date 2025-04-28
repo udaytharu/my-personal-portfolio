@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Uday Tharu's Portfolio - Web Developer and Designer"/>
-    <meta name="keywords" content="web developer, frontend developer, web designer, portfolio"/>
-    <link rel="preload" href="main.png" as="image">
-    <link rel="preload" href="pro.png" as="image">
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" defer>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
-    <!-- Add AOS CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="style.css">
-    <title>My Portfolio</title>
-    <style>
-        /* Critical CSS for above-the-fold content */
-        .bg-gray-100 { background-color: #f3f4f6; }
-        .text-gray-900 { color: #111827; }
-        .container { max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-    </style>
-    <script>
-        // Initialize EmailJS
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof emailjs !== 'undefined') {
-                emailjs.init('fWrSXywYMSfuUthKz');
-            } else {
-                console.error('EmailJS library failed to load.');
-            }
-        });
-    </script>
-</head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="description" content="Uday Tharu's Portfolio - Web Developer and Designer"/>
+        <meta name="keywords" content="web developer, frontend developer, web designer, portfolio"/>
+        <link rel="preload" href="main.png" as="image">
+        <link rel="preload" href="pro.png" as="image">
+        <script src="https://cdn.tailwindcss.com" defer></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" defer>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="style.min.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="style.css">
+        <title>My Portfolio</title>
+        <style>
+            /* Critical CSS for above-the-fold content */
+            .bg-gray-100 { background-color: #f3f4f6; }
+            .text-gray-900 { color: #111827; }
+            .container { max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+            .flex { display: flex; }
+            .items-center { align-items: center; }
+            .justify-between { justify-content: space-between; }
+        </style>
+        <script>
+            // Initialize EmailJS only if the library is loaded
+            document.addEventListener('DOMContentLoaded', () => {
+                if (typeof emailjs !== 'undefined') {
+                    emailjs.init('fWrSXywYMSfuUthKz'); // Replace with your actual User ID
+                } else {
+                    console.error('EmailJS library failed to load. Check your internet connection or script inclusion.');
+                }
+            });
+        </script>
+    </head>
+    
 <body class="bg-gray-100 text-gray-900">
     <!-- Background Animation Container -->
-    <div class="background-shapes" data-aos="fade-in" data-aos-duration="1000"></div>
+    <div class="background-shapes"></div>
 
     <!-- Navigation Menu -->
-    <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-lg transition-all duration-300" data-aos="fade-down" data-aos-duration="600">
+    <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-lg transition-all duration-300">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <a href="#home" id="logo" class="text-2xl font-bold" data-aos="zoom-in" data-aos-delay="100">Uday Tharu</a>
+                <a href="#home" id="logo" class="text-2xl font-bold" data-aos="zoom-in" data-aos-duration="1500">Uday Tharu</a>
                 <div class="flex items-center space-x-4">
                     <button id="menuButton" class="md:hidden" aria-label="Toggle menu">
                         <span class="bar"></span>
                     </button>
                     <div class="hidden md:flex space-x-6">
-                        <a class="hover:text-blue-500 transition-all duration-300" href="#home" data-aos="fade-in" data-aos-delay="200">Home</a>
-                        <a class="hover:text-blue-500 transition-all duration-300" href="#about" data-aos="fade-in" data-aos-delay="300">About</a>
-                        <a class="hover:text-blue-500 transition-all duration-300" href="#skills" data-aos="fade-in" data-aos-delay="400">Skills</a>
-                        <a class="hover:text-blue-500 transition-all duration-300" href="#projects" data-aos="fade-in" data-aos-delay="500">Projects</a>
-                        <a class="hover:text-blue-500 transition-all duration-300" href="#contact" data-aos="fade-in" data-aos-delay="600">Contact</a>
+                        <a class="hover:text-blue-500 transition-all duration-300" href="#home" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
+                        <a class="hover:text-blue-500 transition-all duration-300" href="#about" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">About</a>
+                        <a class="hover:text-blue-500 transition-all duration-300" href="#skills" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Skills</a>
+                        <a class="hover:text-blue-500 transition-all duration-300" href="#projects" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Projects</a>
+                        <a class="hover:text-blue-500 transition-all duration-300" href="#contact" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Contact</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="md:hidden hidden" id="dropdownMenu" role="menu" aria-labelledby="menuButton" data-aos="slide-down" data-aos-delay="100">
+        <div class="md:hidden hidden" id="dropdownMenu" role="menu" aria-labelledby="menuButton">
             <div class="flex flex-col space-y-4 p-4">
-                <a class="hover:text-blue-500 transition-all duration-300" href="#home" data-aos="fade-in" data-aos-delay="200">Home</a>
-                <a class="hover:text-blue-500 transition-all duration-300" href="#about" data-aos="fade-in" data-aos-delay="300">About</a>
-                <a class="hover:text-blue-500 transition-all duration-300" href="#skills" data-aos="fade-in" data-aos-delay="400">Skills</a>
-                <a class="hover:text-blue-500 transition-all duration-300" href="#projects" data-aos="fade-in" data-aos-delay="500">Projects</a>
-                <a class="hover:text-blue-500 transition-all duration-300" href="#contact" data-aos="fade-in" data-aos-delay="600">Contact</a>
+                <a class="hover:text-blue-500 transition-all duration-300" href="#home" data-aos="fade-up" data-aos-duration="1500">Home</a>
+                <a class="hover:text-blue-500 transition-all duration-300" href="#about" data-aos="fade-up" data-aos-duration="1500">About</a>
+                <a class="hover:text-blue-500 transition-all duration-300" href="#skills" data-aos="fade-up" data-aos-duration="1500">Skills</a>
+                <a class="hover:text-blue-500 transition-all duration-300" href="#projects" data-aos="fade-up" data-aos-duration="1500">Projects</a>
+                <a class="hover:text-blue-500 transition-all duration-300" href="#contact" data-aos="fade-up" data-aos-duration="1500">Contact</a>
             </div>
         </div>
     </nav>
@@ -76,59 +76,59 @@
     </div>
 
     <!-- Home Section -->
-    <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center relative" id="home" data-aos="fade-in" data-aos-duration="800">
-        <div class="md:w-1/2" data-aos="zoom-in" data-aos-delay="100">
+    <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center relative" id="home">
+        <div class="md:w-1/2" data-aos="zoom-in" data-aos-duration="3000">
             <img alt="Main Image showing a professional person" class="rounded-lg shadow-lg w-full max-w-md mx-auto" src="main.png" loading="lazy"/>
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
-            <h1 class="text-4xl font-bold" data-aos="fade-up" data-aos-delay="200">
+            <h1 class="text-4xl font-bold" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">
                 Hey I'm <span class="text-blue-500">Uday</span>
             </h1>
             <div class="container mx-auto p-4">
-                <h3 class="text-2xl mt-4" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="text-2xl mt-4" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">
                     I'm a <span class="text-blue-500 typing" id="typing-text"></span>
                 </h3>
             </div>
-            <p class="mt-4" data-aos="fade-up" data-aos-delay="400">
+            <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">
                 I'm a passionate web developer with a strong focus on creating visually appealing and highly functional websites. With years of experience in frontend development and design, I specialize in crafting responsive, user-friendly interfaces that deliver seamless experiences across devices. My goal is to bring your ideas to life through clean code, modern design, and innovative solutions.
             </p>
-            <div class="flex space-x-4 mt-4" data-aos="fade-up" data-aos-delay="500">
-                <a class="text-blue-500 hover:text-blue-700" href="https://www.linkedin.com/in/uday-tharu-25b9042ba/" target="_blank">
+            <div class="flex space-x-4 mt-4">
+                <a class="text-blue-500 hover:text-blue-700" href="https://www.linkedin.com/in/uday-tharu-25b9042ba/" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
-                <a class="text-gray-800 hover:text-gray-900" href="https://github.com/udaytharu" target="_blank">
+                <a class="text-gray-800 hover:text-gray-900" href="https://github.com/udaytharu" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                <a class="text-blue-500 hover:text-blue-700" href="https://x.com/UdayTharu813" target="_blank">
+                <a class="text-blue-500 hover:text-blue-700" href="https://x.com/UdayTharu813" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500">
                     <i class="fa-brands fa-x-twitter"></i>
                 </a>
-                <a class="text-pink-500 hover:text-pink-700" href="https://www.instagram.com/udaytharu6/" target="_blank">
+                <a class="text-pink-500 hover:text-pink-700" href="https://www.instagram.com/udaytharu6/" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a class="text-blue-700 hover:text-blue-900" href="https://www.facebook.com/uday.tharu.73" target="_blank">
+                <a class="text-blue-700 hover:text-blue-900" href="https://www.facebook.com/uday.tharu.73" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1700">
                     <i class="fa-brands fa-facebook"></i>
                 </a>
             </div>
-            <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300" onclick="window.location.href='#contact'" data-aos="zoom-in" data-aos-delay="600">
+            <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300" onclick="window.location.href='#contact'" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1800">
                 Hire me
             </button>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="bg-white py-16" id="about" data-aos="fade-in" data-aos-duration="800">
+    <section class="bg-white py-16" id="about">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center" data-aos="fade-up" data-aos-delay="100">About Me</h2>
+            <h2 class="text-3xl font-bold text-center" data-aos="fade-up" data-aos-duration="1500">About Me</h2>
             <div class="flex flex-col md:flex-row mt-8">
-                <div class="md:w-1/2" data-aos="zoom-in" data-aos-delay="200">
+                <div class="md:w-1/2" data-aos="zoom-in" data-aos-duration="3000">
                     <img alt="Profile Image of Uday" class="rounded-lg shadow-lg w-full max-w-md mx-auto" src="pro.png" loading="lazy"/>
                 </div>
                 <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
-                    <h3 class="text-2xl font-bold" data-aos="fade-up" data-aos-delay="300">Designing is My Passion</h3>
-                    <p class="mt-4" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-2xl font-bold" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Designing is My Passion</h3>
+                    <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="900">
                         I've always been fascinated by the intersection of design and technology, which led me to pursue a career in web development. Over the years, I've honed my skills in creating intuitive and aesthetically pleasing digital experiences. I thrive on solving complex problems, whether it's optimizing a website for performance or designing a layout that captivates users. Let's build something amazing together!
                     </p>
-                    <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300" onclick="downloadCV()" data-aos="zoom-in" data-aos-delay="500">
+                    <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300" onclick="downloadCV()" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1100">
                         Download CV
                     </button>
                 </div>
@@ -137,16 +137,16 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="py-16" id="skills" data-aos="fade-in" data-aos-duration="800">
+    <section class="py-16" id="skills">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center" data-aos="fade-up" data-aos-delay="100">My Skills</h2>
+            <h2 class="text-3xl font-bold text-center" data-aos="fade-up" data-aos-duration="1500">My Skills</h2>
             <div class="flex flex-col md:flex-row mt-8">
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold" data-aos="fade-up" data-aos-delay="200">Skills Reflect Our Knowledge</h3>
-                    <p class="mt-4" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Skills Reflect Our Knowledge</h3>
+                    <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="900">
                         My expertise spans a variety of technologies, allowing me to build dynamic and responsive websites tailored to clients' needs. I'm proficient in both frontend and backend development, with a keen eye for design and usability. From crafting pixel-perfect layouts to writing efficient code, I ensure every project reflects my dedication to quality and innovation.
                     </p>
-                    <div class="flex items-center mt-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mt-8" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">
                         <div class="text-4xl font-bold">2</div>
                         <div class="ml-4">
                             <div class="text-xl font-semibold">Years Of</div>
@@ -156,27 +156,27 @@
                 </div>
                 <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300">
                             <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">HTML</h4>
                             <div class="text-blue-500 text-2xl font-bold">90%</div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400">
                             <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">CSS</h4>
                             <div class="text-blue-500 text-2xl font-bold">80%</div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500">
                             <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">JavaScript</h4>
                             <div class="text-blue-500 text-2xl font-bold">70%</div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1600">
                             <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">PHP</h4>
                             <div class="text-blue-500 text-2xl font-bold">60%</div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="bg-white p-4 rounded-lg shadow-lg skill-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1700">
                             <div class="skill-spotlight"></div>
                             <h4 class="text-xl font-bold">Python</h4>
                             <div class="text-blue-500 text-2xl font-bold">50%</div>
@@ -188,12 +188,12 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20" data-aos="fade-in" data-aos-duration="800">
+    <section id="projects" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up" data-aos-delay="100">My Projects</h2>
+            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up" data-aos-duration="1500">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
                     <div class="project-inner h-full">
                         <div class="project-front h-full">
                             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
@@ -216,8 +216,9 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Project 2 -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
                     <div class="project-inner h-full">
                         <div class="project-front h-full">
                             <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
@@ -240,8 +241,9 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Project 3 -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
                     <div class="project-inner h-full">
                         <div class="project-front h-full">
                             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
@@ -269,17 +271,17 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="bg-white py-12" id="contact" data-aos="fade-in" data-aos-duration="800">
+    <section class="bg-white py-12" id="contact">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl" data-aos="fade-up" data-aos-delay="100">Get in Touch</h2>
-                <p class="mt-4 text-lg leading-6 text-gray-500" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl" data-aos="fade-up" data-aos-duration="1500">Get in Touch</h2>
+                <p class="mt-4 text-lg leading-6 text-gray-500" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="200">
                     I'm excited to collaborate on your next project! Whether you need a stunning website, a custom web application, or design consultation, feel free to reach out. Let's discuss your ideas and turn them into reality.
                 </p>
             </div>
             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="contact-details space-y-6" data-aos="fade-right" data-aos-delay="100">
-                    <div class="block">
+                <div class="contact-details space-y-6">
+                    <div class="block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
                         <div class="flex items-center">
                             <i class="fas fa-phone-alt text-gray-500 text-2xl" style="transform: scaleX(-1);"></i>
                             <div class="ml-4 text-lg text-gray-700">
@@ -287,24 +289,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="block">
+                    <div class="block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-gray-500 text-2xl"></i>
                             <div class="ml-4 text-lg text-gray-700">
-                                <a href="mailto:udaytharu813@gmail.com">Mail me.</a>
+                                <a href="maito:udaytharu813@gmail.com">Mail me.</a>
                             </div>
                         </div>
                     </div>
-                    <div class="block">
+                    <div class="block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
                         <div class="flex items-center">
                             <i class="fas fa-map-marker-alt text-gray-500 text-2xl"></i>
                             <div class="ml-4 text-lg text-gray-700">Rajapur-05, Bardiya, Nepal</div>
                         </div>
                     </div>
                 </div>
-                <div data-aos="fade-left" data-aos-delay="100">
+                <div>
                     <form id="contact-form" data-email="template_90obdbh" aria-label="Contact Form">
-                        <div class="form-group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="form-group" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
                             <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                             <div class="mt-1 relative">
                                 <input type="text" name="user_name" id="name" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition-all duration-300" placeholder="Your Name" required aria-describedby="name-error">
@@ -312,7 +314,7 @@
                                 <span id="name-error" class="form-error text-red-500 text-sm hidden" role="alert"></span>
                             </div>
                         </div>
-                        <div class="mt-4 form-group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="mt-4 form-group" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
                             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                             <div class="mt-1 relative">
                                 <input type="email" name="user_email" id="email" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition-all duration-300" placeholder="Your Email" required aria-describedby="email-error">
@@ -320,7 +322,7 @@
                                 <span id="email-error" class="form-error text-red-500 text-sm hidden" role="alert"></span>
                             </div>
                         </div>
-                        <div class="mt-4 form-group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="mt-4 form-group" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
                             <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                             <div class="mt-1 relative">
                                 <textarea name="message" id="message" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition-all duration-300" placeholder="Your Message" required aria-describedby="message-error"></textarea>
@@ -328,7 +330,7 @@
                                 <span id="message-error" class="form-error text-red-500 text-sm hidden" role="alert"></span>
                             </div>
                         </div>
-                        <div class="mt-4" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="mt-4" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="900">
                             <button type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 relative overflow-hidden">
                                 <span class="button-text">Submit</span>
                                 <span class="button-spinner hidden"><i class="fas fa-spinner fa-spin"></i></span>
@@ -342,32 +344,24 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-gray-800 text-white py-4" data-aos="fade-up" data-aos-duration="600">
+    <footer class="bg-gray-800 text-white py-4" data-aos="fade-up" data-aos-duration="1500">
         <div class="container mx-auto px-4 text-center">
             <span>
-                Created By <a class="text-blue-500 hover:text-blue-700" href="#" data-aos="zoom-in" data-aos-delay="100">uday-studio</a> © 2024 All Rights Reserved
+                Created By <a class="text-blue-500 hover:text-blue-700" href="#">uday-studio</a> © 2024 All Rights Reserved
             </span>
         </div>
     </footer>
 
     <!-- Floating Go to Top Button -->
-    <button class="go-to-top" data-aos="fade-left" data-aos-delay="100">
+    <button class="go-to-top" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
         <i class="fa-solid fa-rocket"></i>
     </button>
 
-    <!-- AOS JavaScript -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({
-                duration: 600, // Match Aman's 0.6s transitions
-                easing: 'ease', // Smooth easing
-                once: true, // Animate only once
-                offset: 100, // Trigger 100px before element enters viewport
-                mirror: false, // Don't animate out when scrolling up
-            });
-        });
+        AOS.init({offset:0});
     </script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

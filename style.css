@@ -1018,12 +1018,6 @@ img:hover {
 .contact-details a:hover {
     color: #3b82f6;
 }
-footer {
-    background-color: #1a365d;
-    color: #fff;
-    padding: 2rem 0;
-    text-align: center;
-}
 
 footer a {
     text-decoration: underline;
