@@ -11,6 +11,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" defer>
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
+        <link rel="icon" type="image/x-icon" href="favicon.png" style="border-radius: 50%;">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="style.min.css" media="print" onload="this.media='all'">
         <link rel="stylesheet" href="style.css">
@@ -37,6 +38,13 @@
     </head>
     
 <body class="bg-gray-100 text-gray-900">
+    <div id="preloader">
+        <video autoplay muted loop id="preloader-video">
+            <source src="Presentation1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
     <!-- Background Animation Container -->
     <div class="background-shapes"></div>
 
@@ -44,7 +52,7 @@
     <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-lg transition-all duration-300">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <a href="#home" id="logo" class="text-2xl font-bold" data-aos="zoom-in" data-aos-duration="1500">Uday Tharu</a>
+                <a href="#home" id="logo" class="text-2xl font-bold" data-aos="zoom-in" data-aos-duration="1500">Uday Tharu></a>
                 <div class="flex items-center space-x-4">
                     <button id="menuButton" class="md:hidden" aria-label="Toggle menu">
                         <span class="bar"></span>

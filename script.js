@@ -687,3 +687,19 @@ function initScrollToTop() {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initScrollToTop);
+
+// Ensure preloader shows immediately
+document.addEventListener('DOMContentLoaded', function () {
+    const preloader = document.getElementById('preloader');
+    const mainContent = document.getElementById('main-content');
+
+    // Simulate preloader display time (e.g., 3 seconds) or wait for load
+    setTimeout(() => {
+        preloader.style.transition = 'opacity 0.5s';
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+            mainContent.style.display = 'block';
+        }, 500); // Matches transition duration
+    }, 5000); // Adjust time as needed
+});
