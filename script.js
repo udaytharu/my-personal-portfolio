@@ -688,18 +688,30 @@ function initScrollToTop() {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initScrollToTop);
 
-// Ensure preloader shows immediately
+// Existing script.js content (omitted for brevity, only showing the updated preloader section)
+
+// Ensure preloader shows immediately and plays video only once
 document.addEventListener('DOMContentLoaded', function () {
     const preloader = document.getElementById('preloader');
     const mainContent = document.getElementById('main-content');
+    const preloaderVideo = document.getElementById('preloader-video');
 
-    // Simulate preloader display time (e.g., 3 seconds) or wait for load
-    setTimeout(() => {
+    // Remove loop attribute to play video only once
+    preloaderVideo.removeAttribute('loop');
+
+    // Function to hide preloader
+    function hidePreloader() {
         preloader.style.transition = 'opacity 0.5s';
         preloader.style.opacity = '0';
         setTimeout(() => {
             preloader.style.display = 'none';
             mainContent.style.display = 'block';
         }, 500); // Matches transition duration
-    }, 5000); // Adjust time as needed
+    }
+
+    // Listen for video end or set a maximum duration (e.g., 5 seconds)
+    preloaderVideo.addEventListener('ended', hidePreloader);
+
+    // Fallback: Hide preloader after 5 seconds if video doesn't end
+    setTimeout(hidePreloader, 5000);
 });
