@@ -5,16 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="description" content="Uday Tharu's Portfolio - Web Developer and Designer"/>
         <meta name="keywords" content="web developer, frontend developer, web designer, portfolio"/>
-        <link rel="preload" href="main.png" as="image">
-        <link rel="preload" href="pro.png" as="image">
+        <link rel="preload" href="assets/images/main.png" as="image">
+        <link rel="preload" href="assets/images/pro.png" as="image">
         <script src="https://cdn.tailwindcss.com" defer></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" defer>
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
-        <link rel="icon" type="image/x-icon" href="favicon.png" style="border-radius: 50%;">
+        <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" style="border-radius: 50%;">
         <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
-        <link rel="stylesheet" href="style.min.css" media="print" onload="this.media='all'">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="css/style.css">
         <title>My Portfolio</title>
         <style>
             /* Critical CSS for above-the-fold content */
@@ -36,14 +36,6 @@
             });
         </script>
     </head>
-    
-<body class="bg-gray-100 text-gray-900">
-    <!-- <div id="preloader">
-        <video autoplay muted id="preloader-video">
-            <source src="Presentation1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div> -->
 
     <!-- Background Animation Container -->
     <div class="background-shapes"></div>
@@ -86,7 +78,7 @@
     <!-- Home Section -->
     <section class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center relative" id="home">
         <div class="md:w-1/2" data-aos="zoom-in" data-aos-duration="3000">
-            <img alt="Main Image showing a professional person" class="rounded-lg shadow-lg w-full max-w-md mx-auto" src="main.png" loading="lazy"/>
+            <img alt="Main Image showing a professional person" class="rounded-lg shadow-lg w-full max-w-md mx-auto" src="assets/images/main.png" loading="lazy"/>
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
             <h1 class="text-4xl font-bold" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">
@@ -129,7 +121,7 @@
             <h2 class="text-3xl font-bold text-center" data-aos="fade-up" data-aos-duration="1500">About Me</h2>
             <div class="flex flex-col md:flex-row mt-8">
                 <div class="md:w-1/2" data-aos="zoom-in" data-aos-duration="3000">
-                    <img alt="Profile Image of Uday" class="rounded-lg shadow-lg w-full max-w-md mx-auto" src="pro.png" loading="lazy"/>
+                    <img alt="Profile Image of Uday" class="rounded-lg shadow-lg w-full max-w-md mx-auto" src="assets/images/pro.png" loading="lazy"/>
                 </div>
                 <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
                     <h3 class="text-2xl font-bold" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Designing is My Passion</h3>
@@ -204,7 +196,7 @@
                 <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
                     <div class="project-inner h-full">
                         <div class="project-front h-full">
-                            <img src="chat-app.png" 
+                            <img src="assets/images/chat-app.png" 
                                  alt="Project 1" 
                                  class="w-full h-48 object-cover rounded-t-lg">
                             <div class="p-4">
@@ -229,7 +221,7 @@
                 <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
                     <div class="project-inner h-full">
                         <div class="project-front h-full">
-                            <img src="webstore.png" 
+                            <img src="assets/images/webstore.png" 
                                  alt="Project 3" 
                                  class="w-full h-48 object-cover rounded-t-lg">
                             <div class="p-4">
@@ -254,7 +246,7 @@
                 <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
                     <div class="project-inner h-full">
                         <div class="project-front h-full">
-                            <img src="blog-app.png" 
+                            <img src="assets/images/blog-app.png" 
                                  alt="Project 4" 
                                  class="w-full h-48 object-cover rounded-t-lg">
                             <div class="p-4">
@@ -279,7 +271,7 @@
                 <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
                     <div class="project-inner h-full">
                         <div class="project-front h-full">
-                            <img src="coopweb.png" 
+                            <img src="assets/images/coopweb.png" 
                                  alt="Project 3" 
                                  class="w-full h-48 object-cover rounded-t-lg">
                             <div class="p-4">
@@ -299,6 +291,31 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 5 -->
+                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                    <div class="project-inner h-full">
+                        <div class="project-front h-full">
+                            <img src="assets/images/tool_hub.png" 
+                                 alt="Project 5" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-4">
+                                <h3 class="text-xl font-bold mb-2">Tools Hub</h3>
+                                <p class="text-gray-600">This tools hub website.</p>
+                            </div>
+                        </div>
+                        <div class="project-back h-full">
+                            <div class="p-6 flex flex-col justify-center items-center">
+                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
+                                <p class="text-gray-600 mb-4">From date conversions, financial calculations to land area calculation and length area conversions..</p>
+                                <div class="flex gap-4">
+                                    <a href="https://khemrajchaudhary.com.np/" class="text-blue-500 hover:text-blue-700">View Demo</a>
+                                    <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
             </div>
         </div>
     </section>
@@ -395,6 +412,6 @@
         AOS.init({offset:0});
     </script>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

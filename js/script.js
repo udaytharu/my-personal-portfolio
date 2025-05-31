@@ -125,7 +125,7 @@ class MobileMenu {
 
 // CV download functionality
 function downloadCV() {
-    const cvUrl = 'cv.pdf'; // Replace with actual CV URL
+    const cvUrl = 'docs/cv.pdf'; // Replace with actual CV URL
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'Uday_Tharu_CV.pdf';
@@ -687,31 +687,3 @@ function initScrollToTop() {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initScrollToTop);
-
-// Existing script.js content (omitted for brevity, only showing the updated preloader section)
-
-// Ensure preloader shows immediately and plays video only once
-document.addEventListener('DOMContentLoaded', function () {
-    const preloader = document.getElementById('preloader');
-    const mainContent = document.getElementById('main-content');
-    const preloaderVideo = document.getElementById('preloader-video');
-
-    // Remove loop attribute to play video only once
-    preloaderVideo.removeAttribute('loop');
-
-    // Function to hide preloader
-    function hidePreloader() {
-        preloader.style.transition = 'opacity 0.5s';
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-            mainContent.style.display = 'block';
-        }, 500); // Matches transition duration
-    }
-
-    // Listen for video end or set a maximum duration (e.g., 5 seconds)
-    preloaderVideo.addEventListener('ended', hidePreloader);
-
-    // Fallback: Hide preloader after 5 seconds if video doesn't end
-    setTimeout(hidePreloader, 5000);
-});
