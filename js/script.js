@@ -125,7 +125,7 @@ class MobileMenu {
 
 // CV download functionality
 function downloadCV() {
-    const cvUrl = 'docs/cv.pdf'; // Replace with actual CV URL
+    const cvUrl = 'docs/uday_cv.pdf'; // Replace with actual CV URL
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'Uday_Tharu_CV.pdf';
