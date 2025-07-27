@@ -15,7 +15,7 @@
         <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
         <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
         <link rel="stylesheet" href="css/style.css">
-        <title>Uday Tharu Portfolio</title>
+        <title>My Portfolio</title>
         <style>
             /* Critical CSS for above-the-fold content */
             .bg-gray-100 { background-color: #f3f4f6; }
@@ -36,9 +36,6 @@
             });
         </script>
     </head>
-
-    <!-- Background Animation Container -->
-    <div class="background-shapes"></div>
 
     <!-- Navigation Menu -->
     <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-lg transition-all duration-300">
@@ -82,21 +79,21 @@
         </div>
         <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
             <h1 class="text-4xl font-bold" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">
-                Hey I'm <span class="text-blue-500">Uday</span>
+                Hey I'm <span class="text-purple-500">Uday</span>
             </h1>
             <div class="container mx-auto p-4">
                 <h3 class="text-2xl mt-4" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="900">
-                    I'm a <span class="text-blue-500 typing" id="typing-text"></span>
+                    I'm a <span class="text-purple-500 typing" id="typing-text"></span>
                 </h3>
             </div>
-            <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">
+            <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100" style="color: gray;">
                 I'm a passionate web developer with a strong focus on creating visually appealing and highly functional websites. With years of experience in frontend development and design, I specialize in crafting responsive, user-friendly interfaces that deliver seamless experiences across devices. My goal is to bring your ideas to life through clean code, modern design, and innovative solutions.
             </p>
             <div class="flex space-x-4 mt-4">
                 <a class="text-blue-500 hover:text-blue-700" href="https://www.linkedin.com/in/uday-tharu-25b9042ba/" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
-                <a class="text-gray-800 hover:text-gray-900" href="https://github.com/udaytharu" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400">
+                <a class="text-white-800 hover:text-white-900" href="https://github.com/udaytharu" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400">
                     <i class="fa-brands fa-github"></i>
                 </a>
                 <a class="text-blue-500 hover:text-blue-700" href="https://x.com/UdayTharu813" target="_blank" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500">
@@ -125,7 +122,7 @@
                 </div>
                 <div class="md:w-1/2 mt-8 md:mt-0 md:ml-8">
                     <h3 class="text-2xl font-bold" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Designing is My Passion</h3>
-                    <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="900">
+                    <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="900" style="color: gray;">
                         I've always been fascinated by the intersection of design and technology, which led me to pursue a career in web development. Over the years, I've honed my skills in creating intuitive and aesthetically pleasing digital experiences. I thrive on solving complex problems, whether it's optimizing a website for performance or designing a layout that captivates users. Let's build something amazing together!
                     </p>
                     <button class="mt-8 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300" onclick="downloadCV()" data-aos="zoom-out" data-aos-duration="1500" data-aos-delay="1100">
@@ -143,11 +140,11 @@
             <div class="flex flex-col md:flex-row mt-8">
                 <div class="md:w-1/2">
                     <h3 class="text-2xl font-bold" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Skills Reflect Our Knowledge</h3>
-                    <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="900">
+                    <p class="mt-4" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="900" style="color: grey;">
                         My expertise spans a variety of technologies, allowing me to build dynamic and responsive websites tailored to clients' needs. I'm proficient in both frontend and backend development, with a keen eye for design and usability. From crafting pixel-perfect layouts to writing efficient code, I ensure every project reflects my dedication to quality and innovation.
                     </p>
                     <div class="flex items-center mt-8" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1100">
-                        <div class="text-4xl font-bold">2</div>
+                        <div class="text-4xl font-bold">3</div>
                         <div class="ml-4">
                             <div class="text-xl font-semibold">Years Of</div>
                             <div class="text-xl font-semibold">Experience</div>
@@ -193,150 +190,160 @@
             <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up" data-aos-duration="1500">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                    <div class="project-inner h-full">
-                        <div class="project-front h-full">
+                <div class="project-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                    <div class="project-inner">
+                        <div class="project-front">
                             <img src="assets/images/chat-app.png" 
-                                 alt="Project 1" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold mb-2">Real-Time Chat Application</h3>
-                                <p class="text-gray-600">A modern real-time messaging platform with instant communication, user authentication, and responsive design.</p>
+                                 alt="Real-Time Chat Application" 
+                                 loading="lazy">
+                            <div class="content">
+                                <h3>Real-Time Chat Application</h3>
+                                <p>A modern real-time messaging platform with instant communication, user authentication, and responsive design.</p>
                             </div>
                         </div>
-                        <div class="project-back h-full">
-                            <div class="p-6 flex flex-col justify-center items-center">
-                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
-                                <p class="text-gray-600 mb-4">Built with Node.js, Socket.IO, and Express.js for real-time communication. Features include instant messaging, user authentication, online status indicators, message timestamps, and responsive design. Deployed on Render with MongoDB for data persistence. Includes features like typing indicators and message delivery status.</p>
-                                <div class="flex gap-4">
-                                    <a href="https://chat-app-7e73.onrender.com/" class="text-blue-500 hover:text-blue-700">View Demo</a>
-                                    <a href="https://github.com/udaytharu/chat-app" class="text-blue-500 hover:text-blue-700">GitHub</a>
-                                </div>
+                        <div class="project-back">
+                            <h3>Project Details</h3>
+                            <p>Built with Node.js, Socket.IO, and Express.js for real-time communication. Features include instant messaging, user authentication, online status indicators, message timestamps, and responsive design. Deployed on Render with MongoDB for data persistence. Includes features like typing indicators and message delivery status.</p>
+                            <div class="flex">
+                                <a href="https://chat-app-7e73.onrender.com/" target="_blank" rel="noopener noreferrer">View Demo</a>
+                                <a href="#contact">Buy</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
-                    <div class="project-inner h-full">
-                        <div class="project-front h-full">
+                <div class="project-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                    <div class="project-inner">
+                        <div class="project-front">
                             <img src="assets/images/webstore.png" 
-                                 alt="Project 2" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold mb-2">IT Mobile Solutions Webstore</h3>
-                                <p class="text-gray-600">A comprehensive e-commerce platform for mobile services, accessories, and photography equipment.</p>
+                                 alt="IT Mobile Solutions Webstore" 
+                                 loading="lazy">
+                            <div class="content">
+                                <h3>IT Mobile Solutions Webstore</h3>
+                                <p>A comprehensive e-commerce platform for mobile services, accessories, and photography equipment.</p>
                             </div>
                         </div>
-                        <div class="project-back h-full">
-                            <div class="p-6 flex flex-col justify-center items-center">
-                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
-                                <p class="text-gray-600 mb-4">A full-featured webstore built with HTML, CSS, and JavaScript. Includes multiple pages for mobile repair services, photography equipment, and mobile accessories. Features product catalog, service booking system, contact forms, and responsive design. Integrated with payment gateways and inventory management system.</p>
-                                <div class="flex gap-4">
-                                    <a href="https://siddhantchaudhary.name.np/" class="text-blue-500 hover:text-blue-700">View Demo</a>
-                                    <a href="https://github.com/udaytharu/webstore" class="text-blue-500 hover:text-blue-700">GitHub</a>
-                                </div>
+                        <div class="project-back">
+                            <h3>Project Details</h3>
+                            <p>A full-featured webstore built with HTML, CSS, and JavaScript. Includes multiple pages for mobile repair services, photography equipment, and mobile accessories. Features product catalog, service booking system, contact forms, and responsive design. Integrated with payment gateways and inventory management system.</p>
+                            <div class="flex">
+                                <a href="https://siddhantchaudhary.name.np/" target="_blank" rel="noopener noreferrer">View Demo</a>
+                                <a href="#contact">Buy</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
-                    <div class="project-inner h-full">
-                        <div class="project-front h-full">
+                <div class="project-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <div class="project-inner">
+                        <div class="project-front">
                             <img src="assets/images/blog-app.png" 
-                                 alt="Project 3" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold mb-2">Blog Management Platform</h3>
-                                <p class="text-gray-600">A modern blog platform with separate user and editor interfaces, content management, and authentication system.</p>
+                                 alt="Blog Management Platform" 
+                                 loading="lazy">
+                            <div class="content">
+                                <h3>Blog Management Platform</h3>
+                                <p>A modern blog platform with separate user and editor interfaces, content management, and authentication system.</p>
                             </div>
                         </div>
-                        <div class="project-back h-full">
-                            <div class="p-6 flex flex-col justify-center items-center">
-                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
-                                <p class="text-gray-600 mb-4">Developed with React.js and Node.js, featuring role-based access control with separate interfaces for users and editors. Includes rich text editor, image upload functionality, comment system, and user authentication. Built with responsive design and SEO optimization. Includes features like draft saving, post scheduling, and analytics dashboard.</p>
-                                <div class="flex gap-4">
-                                    <a href="https://blog-website-ltp1.onrender.com/" class="text-blue-500 hover:text-blue-700">View Demo</a>
-                                    <a href="https://github.com/udaytharu/Blog-Website" class="text-blue-500 hover:text-blue-700">GitHub</a>
-                                </div>
+                        <div class="project-back">
+                            <h3>Project Details</h3>
+                            <p>Developed with React.js and Node.js, featuring role-based access control with separate interfaces for users and editors. Includes rich text editor, image upload functionality, comment system, and user authentication. Built with responsive design and SEO optimization. Includes features like draft saving, post scheduling, and analytics dashboard.</p>
+                            <div class="flex">
+                                <a href="https://blog-website-ltp1.onrender.com" target="_blank" rel="noopener noreferrer">View Demo</a>
+                                <a href="#contact">Buy</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
-                    <div class="project-inner h-full">
-                        <div class="project-front h-full">
+                <div class="project-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                    <div class="project-inner">
+                        <div class="project-front">
                             <img src="assets/images/coopweb.png" 
-                                 alt="Project 4" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold mb-2">Pragati Co-operative Website</h3>
-                                <p class="text-gray-600">A professional website for a cooperative organization with member management and financial services.</p>
+                                 alt="Pragati Co-operative Website" 
+                                 loading="lazy">
+                            <div class="content">
+                                <h3>Pragati Co-operative Website</h3>
+                                <p>A professional website for a cooperative organization with member management and financial services.</p>
                             </div>
                         </div>
-                        <div class="project-back h-full">
-                            <div class="p-6 flex flex-col justify-center items-center">
-                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
-                                <p class="text-gray-600 mb-4">A comprehensive website built with modern web technologies including member portal, loan management system, and financial calculators. Features include user authentication, document management, online application forms, and responsive design. Integrated with backend services for real-time data management and reporting.</p>
-                                <div class="flex gap-4">
-                                    <a href="https://jamunachaudhary.com.np" class="text-blue-500 hover:text-blue-700">View Demo</a>
-                                    <a href="https://github.com/udaytharu/coop-website" class="text-blue-500 hover:text-blue-700">GitHub</a>
-                                </div>
+                        <div class="project-back">
+                            <h3>Project Details</h3>
+                            <p>A comprehensive website built with modern web technologies including financial calculators. Features include document management, and responsive design. Integrated with backend services for real-time data management and reporting.</p>
+                            <div class="flex">
+                                <a href="https://jamunachaudhary.com.np" target="_blank" rel="noopener noreferrer">Visit</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 5 -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
-                    <div class="project-inner h-full">
-                        <div class="project-front h-full">
+                <div class="project-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                    <div class="project-inner">
+                        <div class="project-front">
                             <img src="assets/images/tool_hub.png" 
-                                 alt="Project 5" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold mb-2">Multi-Purpose Tools Hub</h3>
-                                <p class="text-gray-600">A comprehensive collection of utility tools for calculations, conversions, and financial computations.</p>
+                                 alt="Multi-Purpose Tools Hub" 
+                                 loading="lazy">
+                            <div class="content">
+                                <h3>Multi-Purpose Tools Hub</h3>
+                                <p>A comprehensive collection of utility tools for calculations, conversions, and financial computations.</p>
                             </div>
                         </div>
-                        <div class="project-back h-full">
-                            <div class="p-6 flex flex-col justify-center items-center">
-                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
-                                <p class="text-gray-600 mb-4">Built with HTML, CSS, and JavaScript, featuring a wide range of utility tools including date converters, financial calculators, land area calculators, and unit converters. Includes real-time calculations, history tracking, and export functionality. Designed with a clean, intuitive interface and mobile-responsive layout for easy access on all devices.</p>
-                                <div class="flex gap-4">
-                                    <a href="https://khemrajchaudhary.com.np/" class="text-blue-500 hover:text-blue-700">View Demo</a>
-                                    <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
-                                </div>
+                        <div class="project-back">
+                            <h3>Project Details</h3>
+                            <p>Built with HTML, CSS, and JavaScript, featuring a wide range of utility tools including date converters, financial calculators, land area calculators, and unit converters. Includes real-time calculations, history tracking, and export functionality. Designed with a clean, intuitive interface and mobile-responsive layout for easy access on all devices.</p>
+                            <div class="flex">
+                                <a href="https://khemrajchaudhary.com.np/" target="_blank" rel="noopener noreferrer">View Demo</a>
+                                <a href="#contact">Buy</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 6 - Todo App -->
-                <div class="project-card h-[400px]" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
-                    <div class="project-inner h-full">
-                        <div class="project-front h-full">
+                <div class="project-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                    <div class="project-inner">
+                        <div class="project-front">
                             <img src="assets/images/todo.png" 
-                                 alt="Project 6 - Todo App" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-4">
-                                <h3 class="text-xl font-bold mb-2">Advanced Todo Application</h3>
-                                <p class="text-gray-600">A feature-rich task management application with categories, priorities, and local storage persistence.</p>
+                                 alt="Advanced Todo Application" 
+                                 loading="lazy">
+                            <div class="content">
+                                <h3>Advanced Todo Application</h3>
+                                <p>A feature-rich task management application with categories, priorities, and local storage persistence.</p>
                             </div>
                         </div>
-                        <div class="project-back h-full">
-                            <div class="p-6 flex flex-col justify-center items-center">
-                                <h3 class="text-xl font-bold mb-4">Project Details</h3>
-                                <p class="text-gray-600 mb-4">A comprehensive todo application built with HTML, CSS, and JavaScript. Features include task creation, editing, and deletion with drag-and-drop functionality. Includes task categorization, priority levels, due dates, progress tracking, and online db storage for data persistence. Features a modern, responsive design with smooth animations and intuitive user interface.</p>
-                                <div class="flex gap-4">
-                                    <a href="https://todo-app-q3ci.onrender.com/" class="text-blue-500 hover:text-blue-700">View Demo</a>
-                                    <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
-                                </div>
+                        <div class="project-back">
+                            <h3>Project Details</h3>
+                            <p>A comprehensive todo application built with HTML, CSS, and JavaScript. Features include task creation, editing, and deletion with drag-and-drop functionality. Includes task categorization, priority levels, due dates, progress tracking, and local storage for data persistence. Features a modern, responsive design with smooth animations and intuitive user interface.</p>
+                            <div class="flex">
+                                <a href="https://todo-app-q3ci.onrender.com/" target="_blank" rel="noopener noreferrer">View Demo</a>
+                                <a href="#contact">Buy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 - JARVIS AI -->
+                <div class="project-card" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
+                    <div class="project-inner">
+                        <div class="project-front">
+                            <img src="assets/images/jarvis.png" 
+                                 alt="JARVIS-AI Voice Assistant" 
+                                 loading="lazy">
+                            <div class="content">
+                                <h3>JARVIS-AI Voice Assistant</h3>
+                                <p>A powerful AI Voice Assistant inspired by Iron-Man movie.</p>
+                            </div>
+                        </div>
+                        <div class="project-back">
+                            <h3>Project Details</h3>
+                            <p>JARVIS-AI is a powerful, modular, and extensible AI assistant inspired by Iron Man's JARVIS. It features voice interaction, real-time web search, automation, AI-powered chat, image generation, and a modern graphical user interface. The assistant is designed for Windows and leverages state-of-the-art AI models and APIs for natural conversation, automation, and creativity.</p>
+                            <div class="flex">
+                                <a href="#" target="_blank" rel="noopener noreferrer">View Demo</a>
+                                <a href="#contact">Buy</a>
                             </div>
                         </div>
                     </div>
@@ -430,7 +437,7 @@
 
     <!-- Floating Go to Top Button -->
     <button class="go-to-top" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
-        <i class="fa-solid fa-rocket"></i>
+        <img src="/assets/icons/rocket.png" alt="" srcset="">
     </button>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
