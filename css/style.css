@@ -34,7 +34,6 @@ body {
 }
 
 section, .container, #main-content, #about, #skills, #projects, #contact, footer {
-    background: #000 !important;
     color: var(--text-color) !important;
 }
 
