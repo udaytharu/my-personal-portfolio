@@ -34,7 +34,7 @@ body {
 }
 
 section, .container, #main-content, #about, #skills, #projects, #contact, footer {
-    color: var(--text-color) !important;
+    color: var(--text-color);
 }
 
 /* Galaxy Background with Stars */
