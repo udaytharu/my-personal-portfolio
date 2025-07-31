@@ -1700,6 +1700,7 @@ nav {
     }
     
     #projects h2 {
+        padding: 10px;
         font-size: 2rem;
         margin-bottom: 2rem;
     }
