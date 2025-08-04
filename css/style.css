@@ -34,8 +34,7 @@ body {
 }
 
 section, .container, #main-content, #about, #skills, #projects, #contact, footer {
-    background-color: none !important;
-    color: var(--text-color);
+    color: var(--text-color) !important;
 }
 
 /* Galaxy Background with Stars */
@@ -594,7 +593,7 @@ section.visible {
     top: 100%; /* Position it directly below the nav bar */
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, #041630, #000000);
+    background: linear-gradient(135deg, #041630, #181818);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -993,7 +992,7 @@ img:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(138, 92, 246, 0.194) 0%, transparent 70%);
     pointer-events: none;
     z-index: -1;
 }
@@ -1010,10 +1009,10 @@ img:hover {
     position: absolute;
     width: 2px;
     height: 2px;
-    background: rgba(139, 92, 246, 0.8);
+    background: rgba(255, 255, 255, 0.927);
     border-radius: 50%;
     animation: float 15s infinite linear;
-    box-shadow: 0 0 6px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 6px rgb(255, 255, 255);
 }
 
 @keyframes float {
@@ -1092,7 +1091,7 @@ img:hover {
 
 /* About Section Cosmic Styling */
 #about {
-    background: linear-gradient(135deg, rgba(15, 15, 35, 0.9) 0%, rgba(30, 27, 75, 0.8) 100%);
+    background: linear-gradient(135deg, #041630, #000000);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -1163,7 +1162,8 @@ img:hover {
 
 /* Skills Section Enhancement */
 #skills {
-    background: linear-gradient(135deg, rgba(15, 15, 35, 0.8) 0%, rgba(30, 27, 75, 0.7) 100%);
+    background: radial-gradient(rgba(138, 92, 246, 0.194) 0%, transparent 70%);
+    position: relative;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -1239,7 +1239,7 @@ img:hover {
 
 /* Contact Section Cosmic Styling */
 #contact {
-    background: linear-gradient(135deg, rgba(15, 15, 35, 0.9) 0%, rgba(30, 27, 75, 0.8) 100%);
+    background: radial-gradient(rgba(138, 92, 246, 0.194) 0%, transparent 70%);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -1352,7 +1352,8 @@ img:hover {
 
 /* Footer Cosmic Styling */
 footer {
-    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    background: linear-gradient(135deg, #041630, #000000);
+    position: relative;
     position: relative;
     overflow: hidden;
 }
@@ -1398,9 +1399,7 @@ footer a {
 .form-group input,
 .form-group textarea,
 nav {
-    transition: background-color var(--transition-speed) ease,
-                border-color var(--transition-speed) ease,
-                color var(--transition-speed) ease;
+    background: linear-gradient(135deg, #041630, #000000);
 }
 
 /* --- Project Section Modern Responsive Styles --- */
@@ -1701,7 +1700,6 @@ nav {
     }
     
     #projects h2 {
-        padding: 10px;
         font-size: 2rem;
         margin-bottom: 2rem;
     }

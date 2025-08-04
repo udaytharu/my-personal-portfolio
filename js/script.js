@@ -290,7 +290,7 @@ function createParticles(count) {
         particle.style.animationDelay = `${Math.random() * 15}s`;
         particle.style.width = `${Math.random() * 3 + 1}px`;
         particle.style.height = particle.style.width;
-        particle.style.opacity = Math.random() * 0.8 + 0.2;
+        particle.style.opacity = Math.random() * 0.8 + 0.5;
         particlesContainer.appendChild(particle);
     }
 }
