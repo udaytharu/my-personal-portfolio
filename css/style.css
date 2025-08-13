@@ -1247,7 +1247,7 @@ img:hover {
 
 /* About Section Cosmic Styling */
 #about {
-    background: linear-gradient(135deg, #041630, #000000);
+    background: radial-gradient(rgba(138, 92, 246, 0.194) 0%, transparent 70%);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
