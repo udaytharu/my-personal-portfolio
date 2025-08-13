@@ -266,34 +266,59 @@ function initScrollToTop() {
     const goToTopButton = document.querySelector('.go-to-top');
     if (!goToTopButton) return;
 
+    // Ensure exhaust element exists
+    let exhaust = goToTopButton.querySelector('.exhaust');
+    if (!exhaust) {
+        exhaust = document.createElement('div');
+        exhaust.className = 'exhaust';
+        goToTopButton.appendChild(exhaust);
+    }
+
+    // Spawn a smoke puff with varied size, drift and duration
+    const spawnSmoke = () => {
+        const puff = document.createElement('div');
+        puff.className = 'smoke';
+        const offset = (Math.random() - 0.5) * 24; // -12px to 12px
+        const size = 6 + Math.random() * 12; // 6px to 18px
+        const dur = 900 + Math.random() * 800; // 0.9s to 1.7s
+        puff.style.left = '50%';
+        puff.style.marginLeft = `${offset}px`;
+        puff.style.width = `${size}px`;
+        puff.style.height = `${size}px`;
+        puff.style.setProperty('--dur', `${dur}ms`);
+        puff.style.pointerEvents = 'none';
+        puff.addEventListener('animationend', () => puff.remove());
+        goToTopButton.appendChild(puff);
+    };
+
+    let isLaunching = false;
+    let smokeIntervalId = null;
+
     window.addEventListener('scroll', () => {
         goToTopButton.classList.toggle('show', window.scrollY > 300);
     });
 
     goToTopButton.addEventListener('click', () => {
+        if (isLaunching) return; // throttle repeated clicks
+        isLaunching = true;
         goToTopButton.classList.add('launching');
+
+        // Spawn smoke while launching
+        smokeIntervalId = setInterval(spawnSmoke, 60);
+
+        // Begin scroll
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        setTimeout(() => goToTopButton.classList.remove('launching'), 1200);
+
+        // Stop smoke and reset state after flight duration
+        setTimeout(() => {
+            // ensure disabled
+            if (smokeIntervalId) { clearInterval(smokeIntervalId); smokeIntervalId = null; }
+            goToTopButton.classList.remove('launching');
+            isLaunching = false;
+        }, 1250);
     });
 }
 
-// Cosmic Particles
-function createParticles(count) {
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles';
-    document.getElementById('home')?.appendChild(particlesContainer);
-
-    for (let i = 0; i < count; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.animationDelay = `${Math.random() * 15}s`;
-        particle.style.width = `${Math.random() * 3 + 1}px`;
-        particle.style.height = particle.style.width;
-        particle.style.opacity = Math.random() * 0.8 + 0.5;
-        particlesContainer.appendChild(particle);
-    }
-}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -308,5 +333,167 @@ document.addEventListener('DOMContentLoaded', () => {
     initIntersectionObserver();
     initProjectCards();
     initScrollToTop();
-    createParticles(30);
+    // Disable old floating particles
+    // createParticles(30);
+
+    // Initialize twinkling_stars background
+    inittwinkling_stars({ count: 400 });
+
+    // Initialize shooting stars
+    initShootingStars({ frequencyMs: 2500 });
+
+    // Shooting stars removed as requested
 });
+
+// twinkling_stars
+function inittwinkling_stars({ count = 30 } = {}) {
+    const container = document.createElement('div');
+    container.className = 'twinkling_stars';
+    document.body.insertBefore(container, document.body.firstChild);
+
+    const twinkling_stars = [];
+    const viewport = () => ({ w: window.innerWidth, h: window.innerHeight });
+    const movementScale = 0.3; // Lower = slower movement
+
+    for (let i = 0; i < count; i++) {
+        const node = document.createElement('div');
+        node.className = 'firefly';
+        node.style.setProperty('--blink-duration', `${(Math.random() * 2 + 2).toFixed(2)}s`);
+        container.appendChild(node);
+
+        const sizePx = 1.5 + Math.random() * 2.5; // 1.5px to 4px
+        node.style.width = `${sizePx}px`;
+        node.style.height = `${sizePx}px`;
+
+        const f = {
+            el: node,
+            x: Math.random() * viewport().w,
+            y: Math.random() * viewport().h,
+			vx: (Math.random() - 0.5) * 0.2,
+			vy: (Math.random() - 0.5) * 0.2,
+			speed: Math.random() * 0.15 + 0.1,
+            driftChangeMs: 0,
+        };
+        twinkling_stars.push(f);
+    }
+
+    function step(ts) {
+        const { w, h } = viewport();
+        twinkling_stars.forEach(f => {
+            if (!f.last) f.last = ts;
+            const dt = Math.min(33, ts - f.last);
+            f.last = ts;
+
+            // Occasionally change direction slightly
+            f.driftChangeMs += dt;
+			if (f.driftChangeMs > 800 + Math.random() * 1200) {
+				f.vx += (Math.random() - 0.5) * 0.08;
+				f.vy += (Math.random() - 0.5) * 0.08;
+				const max = 0.25;
+                f.vx = Math.max(-max, Math.min(max, f.vx));
+                f.vy = Math.max(-max, Math.min(max, f.vy));
+                f.driftChangeMs = 0;
+            }
+
+			f.x += f.vx * f.speed * dt * movementScale;
+			f.y += f.vy * f.speed * dt * movementScale;
+
+            // Wrap around edges
+            if (f.x < -10) f.x = w + 10;
+            if (f.x > w + 10) f.x = -10;
+            if (f.y < -10) f.y = h + 10;
+            if (f.y > h + 10) f.y = -10;
+
+            f.el.style.transform = `translate(${f.x}px, ${f.y}px)`;
+        });
+
+        requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+
+    window.addEventListener('resize', () => {
+        // No-op: positions wrap relative to viewport in animation loop
+    });
+}
+
+// Shooting Stars
+function initShootingStars({ frequencyMs = 3000 } = {}) {
+    const layer = document.createElement('div');
+    layer.className = 'shooting-stars';
+    document.body.insertBefore(layer, document.body.firstChild);
+    let activeStars = 0;
+
+    function spawn() {
+        if (activeStars >= 4) return;
+        const star = document.createElement('div');
+        star.className = 'shooting-star';
+        layer.appendChild(star);
+        activeStars++;
+
+        // Diagonal, constant-velocity motion (down-right)
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const startX = -80 + Math.random() * (w * 0.15); // from just off left to ~15% width
+        const startY = -100 + Math.random() * (h * 0.25); // from just above to ~25% height
+        const speed = 900 + Math.random() * 400; // px/s
+        const angle = (25 + (Math.random() * 12 - 6)) * (Math.PI / 180); // ~19° to 31°
+        const vx = Math.cos(angle) * speed;
+        const vy = Math.sin(angle) * speed;
+
+        let x = startX;
+        let y = startY;
+        let last = undefined;
+        let life = 0;
+        const maxLife = 1800 + Math.random() * 800; // ms
+        let removed = false;
+
+        // Precompute constant visuals
+        const rotDegConst = Math.atan2(vy, vx) * 180 / Math.PI;
+        const vmagConst = Math.hypot(vx, vy);
+        const tailConst = Math.min(220, 40 + vmagConst * 0.12);
+        star.style.setProperty('--tail', `${tailConst}px`);
+
+        function frame(ts) {
+            if (!last) last = ts;
+            const dtMs = Math.min(33, ts - last);
+            last = ts;
+            life += dtMs;
+
+            const dt = dtMs / 1000;
+
+            // Integrate position (constant velocity)
+            x += vx * dt;
+            y += vy * dt;
+
+            star.style.transform = `translate(${x}px, ${y}px) rotate(${rotDegConst}deg)`;
+
+            // Fade in/out naturally
+            const t = life / maxLife;
+            const opacity = t < 0.15 ? t / 0.15 : (t > 0.85 ? (1 - t) / 0.15 : 1);
+            star.style.opacity = String(Math.max(0, Math.min(1, opacity)));
+
+            // Remove if off-screen or life exceeded
+            if (life > maxLife || x > w + 150 || y > h + 150) {
+                if (!removed) {
+                    removed = true;
+                    activeStars--;
+                    star.remove();
+                }
+                return;
+            }
+
+            requestAnimationFrame(frame);
+        }
+
+        requestAnimationFrame(frame);
+    }
+
+    // Initial few
+    for (let i = 0; i < 2; i++) {
+        setTimeout(spawn, i * 700);
+    }
+
+    // Loop
+    setInterval(spawn, frequencyMs);
+}
