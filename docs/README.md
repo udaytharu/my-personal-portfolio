@@ -142,6 +142,14 @@ portfolio/
 
 ## 🔒 Security
 
+## 🧭 SEO and Performance
+
+- Meta tags: canonical URL, Open Graph, Twitter cards, robots, theme-color
+- JSON-LD Person schema with social profiles
+- Preconnects to CDNs and deferring non-critical scripts
+- Lazy loading images; hero uses high fetch priority
+- Accessible labels and rel attributes on external links
+
 - EmailJS User ID is exposed but this is normal for client-side email services
 - Form validation is implemented both client-side and server-side
 - No sensitive data is stored or processed

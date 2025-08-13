@@ -459,7 +459,7 @@ section.visible {
 .alert-text p {
     margin: 6px 0 0;
     font-size: 15px;
-    color: #e1e1e1; /* Black for both success and error */
+    color: #fff; /* Black for both success and error */
 }
 
 #form-message.success {
@@ -1367,7 +1367,7 @@ img:hover {
 }
 
 #skills p {
-    color: #cbd5e1;
+    color: #fff;
     line-height: 1.8;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
@@ -1434,7 +1434,7 @@ img:hover {
 }
 
 #contact p {
-    color: #cbd5e1;
+    color: #fff;
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
