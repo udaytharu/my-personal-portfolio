@@ -336,13 +336,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Disable old floating particles
     // createParticles(30);
 
-    // Initialize twinkling_stars background
-    inittwinkling_stars({ count: 400 });
+    // Initialize twinkling_stars background only on desktop for better mobile performance
+    if (window.innerWidth > 768) {
+        inittwinkling_stars({ count: 400 });
+    }
 
-    // Initialize shooting stars
-    initShootingStars({ frequencyMs: 2500 });
+    // Initialize shooting stars only on desktop for better mobile performance
+    if (window.innerWidth > 768) {
+        initShootingStars({ frequencyMs: 2500 });
+    }
 
-    // Shooting stars removed as requested
+    // Handle window resize for responsive animations
+    window.addEventListener('resize', () => {
+        const isMobile = window.innerWidth <= 768;
+        const twinklingContainer = document.querySelector('.twinkling_stars');
+        const shootingContainer = document.querySelector('.shooting-stars');
+        
+        if (isMobile) {
+            // Remove animations on mobile
+            if (twinklingContainer) twinklingContainer.remove();
+            if (shootingContainer) shootingContainer.remove();
+        } else {
+            // Add animations on desktop if they don't exist
+            if (!twinklingContainer) {
+                inittwinkling_stars({ count: 400 });
+            }
+            if (!shootingContainer) {
+                initShootingStars({ frequencyMs: 2500 });
+            }
+        }
+    });
 });
 
 // twinkling_stars
