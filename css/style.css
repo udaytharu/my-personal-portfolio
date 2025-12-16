@@ -997,8 +997,8 @@ img:hover {
 }
 
 .go-to-top img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     display: block;
     z-index: 2;
     position: relative;
